@@ -1,0 +1,128 @@
+
+    <html>
+    <head>
+    <meta charset='utf-8'>
+    <title>Transcript Materialien-runningking55_37706-#9</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: #ffffff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 10px;
+    }
+    .timestamp-header {
+        text-align: center;
+        color: #e0e0e0;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .message {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+    }
+    .author {
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    .timestamp {
+        font-size: 0.85em;
+        color: #b0b0b0;
+        margin-right: 8px;
+    }
+    .content {
+        color: #ffffff;
+        margin-top: 5px;
+        line-height: 1.6;
+    }
+    .attachment {
+        margin-top: 10px;
+    }
+    .attachment img {
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-top: 10px;
+    }
+    .attachment a {
+        color: #81d4fa;
+        text-decoration: none;
+        padding: 5px 10px;
+        background: rgba(129, 212, 250, 0.2);
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+    .attachment a:hover {
+        background: rgba(129, 212, 250, 0.3);
+    }
+    .embed {
+        background: rgba(47, 49, 54, 0.8);
+        border-left: 4px solid #5865f2;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1em;
+        color: #ffffff;
+    }
+    .embed p {
+        margin: 5px 0;
+        color: #dcddde;
+    }
+    .embed img {
+        max-width: 400px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed-footer {
+        font-size: 0.8em;
+        color: #b9bbbe;
+        margin-top: 10px;
+    }
+    .embed-author {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        margin: 30px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <h2>📋 Transcript von #Materialien-runningking55_37706-#9</h2>
+    <div class="timestamp-header">14.04.2026 19:24:37 UTC</div>
+    <hr>
+    <div class='message'><span class='timestamp'>[14.04.2026 18:05:44]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[14.04.2026 18:05:44]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[14.04.2026 18:05:45]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[14.04.2026 18:05:45]</span> <span class='author'>Ticket System#7422</span><div class='content'><@1289645066104606754> <@&1492647563948593312></div></div><div class='message'><span class='timestamp'>[14.04.2026 18:05:45]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🎫 Materialien Ticket</h3><p>ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</p><p><b>**Nutzer:**:</b> <@1289645066104606754></p><p><b>**Ticket Thema:**:</b> Materialien</p><p><b>**Wie heißt du (ingame)?:**:</b> RunningKing55</p><p><b>**Welches Item/welcher Block?:**:</b> Kohleerz und Kohleblock</p><p><b>**Gespendet oder Bezahlt?:**:</b> Bezahlt</p><div class='embed-footer'>Ticket von runningking55_37706</div></div></div><div class='message'><span class='timestamp'>[14.04.2026 18:15:45]</span> <span class='author'>allo7537</span><div class='content'>Hey <@1289645066104606754> übernimmst du die ganzen kohle blöcke?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:15:56]</span> <span class='author'>runningking55_37706</span><div class='content'>ja und die Erze</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:16:13]</span> <span class='author'>allo7537</span><div class='content'>Alles - Alleine?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:16:21]</span> <span class='author'>runningking55_37706</span><div class='content'>ja</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:16:29]</span> <span class='author'>allo7537</span><div class='content'>das sind 100k blöcke</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:16:37]</span> <span class='author'>runningking55_37706</span><div class='content'>ich farme gerne und übernehme die Aufgabe</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:17:33]</span> <span class='author'>runningking55_37706</span><div class='content'>sind sogar 118k</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:19:35]</span> <span class='author'>runningking55_37706</span><div class='content'>also?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:27:05]</span> <span class='author'>allo7537</span><div class='content'>na dann erst recht xd</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:27:12]</span> <span class='author'>allo7537</span><div class='content'>alles gesamt?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:27:15]</span> <span class='author'>allo7537</span><div class='content'>zsm</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:28:01]</span> <span class='author'>runningking55_37706</span><div class='content'>was meinst du</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:28:39]</span> <span class='author'>allo7537</span><div class='content'>Alles zusammen 118k?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:29:06]</span> <span class='author'>runningking55_37706</span><div class='content'>blöcke sind das meinte ich</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:32:14]</span> <span class='author'>allo7537</span><div class='content'>96603+22382
+118.985</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:32:18]</span> <span class='author'>allo7537</span><div class='content'>das alles machst du?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:50:01]</span> <span class='author'>runningking55_37706</span><div class='content'>jo</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:50:12]</span> <span class='author'>runningking55_37706</span><div class='content'>ist das schlimm?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:50:18]</span> <span class='author'>runningking55_37706</span><div class='content'>dauert nich so lange</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:50:29]</span> <span class='author'>allo7537</span><div class='content'>ok von mir aus</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:50:59]</span> <span class='author'>runningking55_37706</span><div class='content'>was würd ich kriegen</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:51:22]</span> <span class='author'>allo7537</span><div class='content'>118k??</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:51:42]</span> <span class='author'>runningking55_37706</span><div class='content'>1 dollar pro block?????</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:51:56]</span> <span class='author'>allo7537</span><div class='content'>hast du gesagt??</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:52:16]</span> <span class='author'>runningking55_37706</span><div class='content'>nein das war ne zusammenfassung wie viel ich farmen werde an blöcken</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:52:23]</span> <span class='author'>allo7537</span><div class='content'>aso</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:53:15]</span> <span class='author'>runningking55_37706</span><div class='content'>also?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:53:26]</span> <span class='author'>allo7537</span><div class='content'>sag an wv du willst</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:53:40]</span> <span class='author'>runningking55_37706</span><div class='content'>müsste ich kurz überlegen</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:53:46]</span> <span class='author'>allo7537</span><div class='content'>kk</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:54:19]</span> <span class='author'>runningking55_37706</span><div class='content'>hmm so 5mio</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:54:34]</span> <span class='author'>allo7537</span><div class='content'>mhhhhhh boah</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:55:02]</span> <span class='author'>runningking55_37706</span><div class='content'>ich kanns in unter nem monat erledigen</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:55:16]</span> <span class='author'>runningking55_37706</span><div class='content'>Clan</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:55:20]</span> <span class='author'>allo7537</span><div class='content'>ende diesen monats?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:55:23]</span> <span class='author'>allo7537</span><div class='content'>clan??</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:55:39]</span> <span class='author'>runningking55_37706</span><div class='content'>ne in einem monat</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:56:06]</span> <span class='author'>allo7537</span><div class='content'>boah ja müsste halt lange dann warten</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:56:33]</span> <span class='author'>runningking55_37706</span><div class='content'>ja ich sag ja unter nem monat das ist maximum eher richtung 2 Wochen</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:56:39]</span> <span class='author'>runningking55_37706</span><div class='content'>bin halt alleine</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:56:53]</span> <span class='author'>allo7537</span><div class='content'>bohrer?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:56:59]</span> <span class='author'>runningking55_37706</span><div class='content'>ne</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:57:04]</span> <span class='author'>allo7537</span><div class='content'>speed?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:57:17]</span> <span class='author'>runningking55_37706</span><div class='content'>was meinste speed</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:57:22]</span> <span class='author'>allo7537</span><div class='content'>Wie viel speed</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:57:31]</span> <span class='author'>runningking55_37706</span><div class='content'>120</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:57:36]</span> <span class='author'>allo7537</span><div class='content'>kk</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:58:22]</span> <span class='author'>runningking55_37706</span><div class='content'>ich schaffe das</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:58:36]</span> <span class='author'>allo7537</span><div class='content'>wie du meinst aber 5m bissle viel</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:58:49]</span> <span class='author'>runningking55_37706</span><div class='content'>dann sag was</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:06:05]</span> <span class='author'>runningking55_37706</span><div class='content'>???</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:06:16]</span> <span class='author'>allo7537</span><div class='content'>ka xd</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:06:40]</span> <span class='author'>runningking55_37706</span><div class='content'>also 5m?</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:06:50]</span> <span class='author'>allo7537</span><div class='content'>weniger</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:07:12]</span> <span class='author'>runningking55_37706</span><div class='content'>dann sag doch was</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:07:18]</span> <span class='author'>allo7537</span><div class='content'>2,5</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:07:30]</span> <span class='author'>allo7537</span><div class='content'>oder wait</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:07:33]</span> <span class='author'>runningking55_37706</span><div class='content'>nah sry</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:15:37]</span> <span class='author'>runningking55_37706</span><div class='content'>???</div></div>
+    </div>
+    </body>
+    </html>
+    
