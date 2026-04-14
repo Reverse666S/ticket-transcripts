@@ -1,0 +1,133 @@
+
+    <html>
+    <head>
+    <meta charset='utf-8'>
+    <title>Transcript Bewerbung-lalars4_-#7</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: #ffffff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 10px;
+    }
+    .timestamp-header {
+        text-align: center;
+        color: #e0e0e0;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .message {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+    }
+    .author {
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    .timestamp {
+        font-size: 0.85em;
+        color: #b0b0b0;
+        margin-right: 8px;
+    }
+    .content {
+        color: #ffffff;
+        margin-top: 5px;
+        line-height: 1.6;
+    }
+    .attachment {
+        margin-top: 10px;
+    }
+    .attachment img {
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-top: 10px;
+    }
+    .attachment a {
+        color: #81d4fa;
+        text-decoration: none;
+        padding: 5px 10px;
+        background: rgba(129, 212, 250, 0.2);
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+    .attachment a:hover {
+        background: rgba(129, 212, 250, 0.3);
+    }
+    .embed {
+        background: rgba(47, 49, 54, 0.8);
+        border-left: 4px solid #5865f2;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1em;
+        color: #ffffff;
+    }
+    .embed p {
+        margin: 5px 0;
+        color: #dcddde;
+    }
+    .embed img {
+        max-width: 400px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed-footer {
+        font-size: 0.8em;
+        color: #b9bbbe;
+        margin-top: 10px;
+    }
+    .embed-author {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        margin: 30px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <h2>📋 Transcript von #Bewerbung-lalars4_-#7</h2>
+    <div class="timestamp-header">14.04.2026 19:41:10 UTC</div>
+    <hr>
+    <div class='message'><span class='timestamp'>[14.04.2026 14:59:46]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[14.04.2026 14:59:46]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[14.04.2026 14:59:47]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[14.04.2026 14:59:47]</span> <span class='author'>Ticket System#7422</span><div class='content'><@1482651350658580622> <@&1492647572299448410></div></div><div class='message'><span class='timestamp'>[14.04.2026 14:59:48]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🎫 Bewerbung Ticket</h3><p>ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</p><p><b>**Nutzer:**:</b> <@1482651350658580622></p><p><b>**Ticket Thema:**:</b> Bewerbung</p><p><b>**Name und Alter:**:</b> Lars 19</p><p><b>**Erzähle uns etwas über dich:**:</b> Bin lars viel langeweile jnd kann deshalb viel im auge behalten zudem anstand respekt und reife vorhanden.</p><p><b>**Was möchtest du werden?:**:</b> Support</p><p><b>**Wieso sollten wir dich nehmen?:**:</b> Wieso nicht🙃 bin hilfsbereit habe einen guten Ruf und viel Zeit sowie Kompetenz, kann auch gerne was Farmen Lager und Tickets angeht mithelfen.</p><div class='embed-footer'>Ticket von lalars4_</div></div></div><div class='message'><span class='timestamp'>[14.04.2026 15:04:27]</span> <span class='author'>allo7537</span><div class='content'>Heyho <@1482651350658580622>, 
+Find ich ja super das du dich dafür bewerben möchtest doch vorerst müsste ich wissen wie viele Stunden du aktiv hast und insgesamt</div></div><div class='message'><span class='timestamp'>[14.04.2026 15:05:55]</span> <span class='author'>lalars4_</span><div class='content'>Also ich glaube der schnitt von den letzten 30 tagen war bei 4-5h aber insgesamt über tausend ich schau aber mal heute abend nochmal genauer</div></div><div class='message'><span class='timestamp'>[14.04.2026 15:06:25]</span> <span class='author'>allo7537</span><div class='content'>das klingt gut xd</div></div><div class='message'><span class='timestamp'>[14.04.2026 15:07:36]</span> <span class='author'>lalars4_</span><div class='content'>:D.</div></div><div class='message'><span class='timestamp'>[14.04.2026 15:35:47]</span> <span class='author'>allo7537</span><div class='content'><@1482651350658580622> sicher Supporter ?</div></div><div class='message'><span class='timestamp'>[14.04.2026 15:36:21]</span> <span class='author'>allo7537</span><div class='content'>Wir haben auch eine neue Rolle <@&1493634281061351495> aber wenn du gerne Supporter sein möchtest die brauchen wir ja auch 😄</div></div><div class='message'><span class='timestamp'>[14.04.2026 15:37:26]</span> <span class='author'>lalars4_</span><div class='content'>Ja versuchen kostet ja mal nichts</div></div><div class='message'><span class='timestamp'>[14.04.2026 15:58:02]</span> <span class='author'>allo7537</span><div class='content'>Lagerleitung oder Supporter?? xd</div></div><div class='message'><span class='timestamp'>[14.04.2026 15:58:07]</span> <span class='author'>allo7537</span><div class='content'><@1482651350658580622></div></div><div class='message'><span class='timestamp'>[14.04.2026 15:58:28]</span> <span class='author'>allo7537</span><div class='content'>Achso ja vorher bitte verifizieren ^^</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:38:47]</span> <span class='author'>allo7537</span><div class='content'><@&1493634281061351495> oder <@&1488992737817526385>  <@1482651350658580622> ?</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:39:12]</span> <span class='author'>lalars4_</span><div class='content'>Lagerleitung gerne</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:39:30]</span> <span class='author'>lalars4_</span><div class='content'>Dann kann ich da wehnichstens meine ordnung reinbringen</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:39:33]</span> <span class='author'>allo7537</span><div class='content'>ok dann bräuchte ich aber eine neue beschreibung xd</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:39:42]</span> <span class='author'>lalars4_</span><div class='content'>Wie</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:39:56]</span> <span class='author'>allo7537</span><div class='content'>warum man dich als Lagerleitung nehmen sollte</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:40:09]</span> <span class='author'>allo7537</span><div class='content'>wobei eig brauchen wir mehr leute fürs Team xd</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:41:52]</span> <span class='author'>lalars4_</span><div class='content'>Ich kann ja auch beides managen lager ist ja eher nebenbei</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:42:17]</span> <span class='author'>allo7537</span><div class='content'>ich würde mich sonst ums Lager kümmern xd</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:42:21]</span> <span class='author'>allo7537</span><div class='content'>aber team brauchen wir mehr</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:59:29]</span> <span class='author'>allo7537</span><div class='content'><@1482651350658580622> also <@&1488992737817526385> ?</div></div><div class='message'><span class='timestamp'>[14.04.2026 17:00:12]</span> <span class='author'>allo7537</span><div class='content'>das ding ist später wenn du fr den ganzen riesen kram farmst bekommst du eh <@&1492590321912119338> aber das kann ja auch als rolle nebenbei da sein^^</div></div><div class='message'><span class='timestamp'>[14.04.2026 17:09:27]</span> <span class='author'>allo7537</span></div><div class='message'><span class='timestamp'>[14.04.2026 17:10:43]</span> <span class='author'>allo7537</span><div class='content'>ka warum er drinne war xd</div></div><div class='message'><span class='timestamp'>[14.04.2026 17:10:58]</span> <span class='author'>allo7537</span><div class='content'>aso weil ich ihn mit Supporter gepingt habe xd</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:23:36]</span> <span class='author'>lalars4_</span><div class='content'>Okay kann ich dann vllt mod oder mich bissl mit um die teamorga hier kümmern</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:28:28]</span> <span class='author'>allo7537</span><div class='content'>Hey <@1482651350658580622> ich würd erstmal sagen <@&1488992737817526385> und dann Bis Freitag Testphase und wenn alles geklappt hat reden wir über Mod ok?</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:43:46]</span> <span class='author'>lalars4_</span><div class='content'>👌🏽</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:44:51]</span> <span class='author'>allo7537</span><div class='content'>ohh wait ich seh gerade wo ich dir deine Rolle geben wollt du hast 1 Regeln noch nicht 😄</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:44:57]</span> <span class='author'>allo7537</span><div class='content'>beachtet*</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:45:07]</span> <span class='author'>allo7537</span><div class='content'><@1482651350658580622></div></div><div class='message'><span class='timestamp'>[14.04.2026 18:55:25]</span> <span class='author'>lalars4_</span><div class='content'>Das verfizieren hat nicht geklappt</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:55:33]</span> <span class='author'>allo7537</span><div class='content'>nochmal ^^</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:55:37]</span> <span class='author'>allo7537</span><div class='content'>bot ist wieder aktiv</div></div><div class='message'><span class='timestamp'>[14.04.2026 18:56:09]</span> <span class='author'>lalars4_</span><div class='content'>Geht nicht</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:01:53]</span> <span class='author'>allo7537</span><div class='content'>ich geb dir dann einfach die Rolle 🙂</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:02:11]</span> <span class='author'>allo7537</span><div class='content'>huch auf einmal verifiziert</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:03:44]</span> <span class='author'>allo7537</span><div class='content'>So <@1482651350658580622> willkommen im Team</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:06:11]</span> <span class='author'>lalars4_</span><div class='content'>Dankeschön 😄</div></div><div class='message'><span class='timestamp'>[14.04.2026 19:06:24]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>⏱️ Schließanfrage</h3><p>Dieses Ticket wird in **1.0h** automatisch geschlossen.
+
+**Grund:**
+```Done Testphase bis```
+
+Oder schließe es jetzt manuell über den Button.</p></div></div><div class='message'><span class='timestamp'>[14.04.2026 19:06:36]</span> <span class='author'>allo7537</span><div class='content'>Testphase bis Freitag*</div></div>
+    </div>
+    </body>
+    </html>
+    
