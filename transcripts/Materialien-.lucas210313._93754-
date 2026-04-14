@@ -1,0 +1,127 @@
+
+    <html>
+    <head>
+    <meta charset='utf-8'>
+    <title>Transcript Materialien-.lucas210313._93754-#1</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: #ffffff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 10px;
+    }
+    .timestamp-header {
+        text-align: center;
+        color: #e0e0e0;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .message {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+    }
+    .author {
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    .timestamp {
+        font-size: 0.85em;
+        color: #b0b0b0;
+        margin-right: 8px;
+    }
+    .content {
+        color: #ffffff;
+        margin-top: 5px;
+        line-height: 1.6;
+    }
+    .attachment {
+        margin-top: 10px;
+    }
+    .attachment img {
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-top: 10px;
+    }
+    .attachment a {
+        color: #81d4fa;
+        text-decoration: none;
+        padding: 5px 10px;
+        background: rgba(129, 212, 250, 0.2);
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+    .attachment a:hover {
+        background: rgba(129, 212, 250, 0.3);
+    }
+    .embed {
+        background: rgba(47, 49, 54, 0.8);
+        border-left: 4px solid #5865f2;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1em;
+        color: #ffffff;
+    }
+    .embed p {
+        margin: 5px 0;
+        color: #dcddde;
+    }
+    .embed img {
+        max-width: 400px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed-footer {
+        font-size: 0.8em;
+        color: #b9bbbe;
+        margin-top: 10px;
+    }
+    .embed-author {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        margin: 30px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <h2>📋 Transcript von #Materialien-.lucas210313._93754-#1</h2>
+    <div class="timestamp-header">14.04.2026 19:41:54 UTC</div>
+    <hr>
+    <div class='message'><span class='timestamp'>[13.04.2026 19:51:38]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[13.04.2026 19:51:39]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[13.04.2026 19:51:39]</span> <span class='author'>Ticket System#7422</span><div class='content'><@1200680240968634430> <@&1492647563948593312></div></div><div class='message'><span class='timestamp'>[13.04.2026 19:51:39]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🎫 Materialien Ticket</h3><p>ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</p><p><b>**Nutzer:**:</b> <@1200680240968634430></p><p><b>**Ticket Thema:**:</b> Materialien</p><p><b>**Wie heißt du (ingame)?:**:</b> sowie_hier</p><p><b>**Welches Item/welcher Block?:**:</b> alles dark oak</p><p><b>**Gespendet oder Bezahlt?:**:</b> ka</p><div class='embed-footer'>Ticket von .lucas210313._93754</div></div></div><div class='message'><span class='timestamp'>[13.04.2026 20:42:37]</span> <span class='author'>allo7537</span><div class='content'>Hey <@1200680240968634430> das freut mich du würdest jegliche Dark Oak items übernehmen?</div></div><div class='message'><span class='timestamp'>[14.04.2026 14:39:10]</span> <span class='author'>allo7537</span><div class='content'>Hey <@1200680240968634430>  die Tickets sind gefixed du kannst nun schreiben - Du würdest alle Dark Oak items machen richtig?</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:08:00]</span> <span class='author'>allo7537</span><div class='content'><@1200680240968634430></div></div><div class='message'><span class='timestamp'>[14.04.2026 16:13:38]</span> <span class='author'>.lucas210313._93754</span><div class='content'>jup wäre lieb wenn du mir nur die dark oak sachen rein schickst</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:15:52]</span> <span class='author'>allo7537</span><div class='content'>mach ich dm</div></div><div class='message'><span class='timestamp'>[14.04.2026 16:16:19]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>✅ Ticket bleibt offen</h3><p><@1467777346030272563> hat die Schließanfrage abgebrochen.</p></div></div>
+    </div>
+    </body>
+    </html>
+    
