@@ -1,0 +1,127 @@
+
+    <html>
+    <head>
+    <meta charset='utf-8'>
+    <title>Transcript Bewerbung-_doener_on_tour-#10</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: #ffffff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 10px;
+    }
+    .timestamp-header {
+        text-align: center;
+        color: #e0e0e0;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .message {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+    }
+    .author {
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    .timestamp {
+        font-size: 0.85em;
+        color: #b0b0b0;
+        margin-right: 8px;
+    }
+    .content {
+        color: #ffffff;
+        margin-top: 5px;
+        line-height: 1.6;
+    }
+    .attachment {
+        margin-top: 10px;
+    }
+    .attachment img {
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-top: 10px;
+    }
+    .attachment a {
+        color: #81d4fa;
+        text-decoration: none;
+        padding: 5px 10px;
+        background: rgba(129, 212, 250, 0.2);
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+    .attachment a:hover {
+        background: rgba(129, 212, 250, 0.3);
+    }
+    .embed {
+        background: rgba(47, 49, 54, 0.8);
+        border-left: 4px solid #5865f2;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1em;
+        color: #ffffff;
+    }
+    .embed p {
+        margin: 5px 0;
+        color: #dcddde;
+    }
+    .embed img {
+        max-width: 400px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed-footer {
+        font-size: 0.8em;
+        color: #b9bbbe;
+        margin-top: 10px;
+    }
+    .embed-author {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        margin: 30px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <h2>📋 Transcript von #Bewerbung-_doener_on_tour-#10</h2>
+    <div class="timestamp-header">16.04.2026 10:29:08 UTC</div>
+    <hr>
+    <div class='message'><span class='timestamp'>[15.04.2026 20:45:23]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[15.04.2026 20:45:25]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[15.04.2026 20:45:27]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[15.04.2026 20:45:27]</span> <span class='author'>Ticket System#7422</span><div class='content'><@338690556005974016> <@&1492647572299448410></div></div><div class='message'><span class='timestamp'>[15.04.2026 20:45:29]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🎫 Bewerbung Ticket</h3><p>ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</p><p><b>**Nutzer:**:</b> <@338690556005974016></p><p><b>**Ticket Thema:**:</b> Bewerbung</p><p><b>**Name und Alter:**:</b> Sven / black3112 38 jahre alt</p><p><b>**Erzähle uns etwas über dich:**:</b> Ich spiele seit dem 4.10.25 auf dem Op Server. Habe spaß am farmen und kann in kurzer zeit viel schaffen. Ich selber bin leider erkrankt daher zurück haltent ,aber trotzdem ein freundlicher Mensch mit dem man reden kann!</p><p><b>**Was möchtest du werden?:**:</b> Farmer</p><p><b>**Wieso sollten wir dich nehmen?:**:</b> Ich arbeite immer gewissenhaft, bin immer freundlich und helfe anderen!!! Und ich bin der Meinung das ich eine große Bereicherung wäre</p><div class='embed-footer'>Ticket von _doener_on_tour</div></div></div><div class='message'><span class='timestamp'>[16.04.2026 04:40:26]</span> <span class='author'>allo7537</span><div class='content'>Hey <@338690556005974016> klingt ja alles sehr gut. Dürfte ich evtl wissen wie lange du krank bist ca ich weiß es ist immer schwer abzuschätzen aber so ungefähr</div></div><div class='message'><span class='timestamp'>[16.04.2026 04:45:39]</span> <span class='author'>_doener_on_tour</span><div class='content'>habe parkinson daher mal 1 bis 2 tage in 2 wochen ca</div></div><div class='message'><span class='timestamp'>[16.04.2026 04:46:30]</span> <span class='author'>_doener_on_tour</span><div class='content'>ansonsten bin ich nachmittags paar stunden Online</div></div><div class='message'><span class='timestamp'>[16.04.2026 05:28:11]</span> <span class='author'>allo7537</span><div class='content'>Das doch gut</div></div><div class='message'><span class='timestamp'>[16.04.2026 05:28:33]</span> <span class='author'>allo7537</span><div class='content'>Dann willkommen als farmer</div></div><div class='message'><span class='timestamp'>[16.04.2026 05:30:36]</span> <span class='author'>_doener_on_tour</span><div class='content'>Danke schön</div></div>
+    </div>
+    </body>
+    </html>
+    
