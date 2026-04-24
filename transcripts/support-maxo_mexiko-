@@ -1,0 +1,133 @@
+
+    <html>
+    <head>
+    <meta charset='utf-8'>
+    <title>Transcript support-maxo_mexiko-#13</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: #ffffff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 10px;
+    }
+    .timestamp-header {
+        text-align: center;
+        color: #e0e0e0;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .message {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+    }
+    .author {
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    .timestamp {
+        font-size: 0.85em;
+        color: #b0b0b0;
+        margin-right: 8px;
+    }
+    .content {
+        color: #ffffff;
+        margin-top: 5px;
+        line-height: 1.6;
+    }
+    .attachment {
+        margin-top: 10px;
+    }
+    .attachment img {
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-top: 10px;
+    }
+    .attachment a {
+        color: #81d4fa;
+        text-decoration: none;
+        padding: 5px 10px;
+        background: rgba(129, 212, 250, 0.2);
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+    .attachment a:hover {
+        background: rgba(129, 212, 250, 0.3);
+    }
+    .embed {
+        background: rgba(47, 49, 54, 0.8);
+        border-left: 4px solid #5865f2;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1em;
+        color: #ffffff;
+    }
+    .embed p {
+        margin: 5px 0;
+        color: #dcddde;
+    }
+    .embed img {
+        max-width: 400px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed-footer {
+        font-size: 0.8em;
+        color: #b9bbbe;
+        margin-top: 10px;
+    }
+    .embed-author {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        margin: 30px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <h2>📋 Transcript von #support-maxo_mexiko-#13</h2>
+    <div class="timestamp-header">24.04.2026 16:07:24 UTC</div>
+    <hr>
+    <div class='message'><span class='timestamp'>[21.04.2026 14:21:19]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[21.04.2026 14:21:19]</span> <span class='author'>Ticket System#7422</span><div class='content'><@1332635546832338977></div></div><div class='message'><span class='timestamp'>[21.04.2026 14:21:19]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🎫 support Ticket</h3><p>ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</p><p><b>**Nutzer:**:</b> <@1332635546832338977></p><p><b>**Ticket Thema:**:</b> support</p><p><b>**Dein Anliegen:**:</b> Ich möchte aus dem Clan austreten.</p><div class='embed-footer'>Ticket von maxo_mexiko</div></div></div><div class='message'><span class='timestamp'>[21.04.2026 15:23:26]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[21.04.2026 15:24:02]</span> <span class='author'>ronja2578429</span><div class='content'>Welche Gründe hat es damit ich es weiß</div></div><div class='message'><span class='timestamp'>[21.04.2026 18:07:59]</span> <span class='author'>ronja2578429</span><div class='content'>wie heißt du auf minecraft</div></div><div class='message'><span class='timestamp'>[21.04.2026 18:08:14]</span> <span class='author'>ronja2578429</span><div class='content'><@1332635546832338977></div></div><div class='message'><span class='timestamp'>[21.04.2026 18:10:26]</span> <span class='author'>maxo_mexiko</span><div class='content'>Ich spiele aktuell nicht mehr so oft Minecraft  und habe auch nicht so viel Spaß daran. Ein Clan ist glaube ich nichts für mich.
+
+Minecraftname: 
+.HornDuck5548</div></div><div class='message'><span class='timestamp'>[22.04.2026 04:56:48]</span> <span class='author'>ronja2578429</span><div class='content'>OK danke das ticket werde ich später schließen wenn ich die in Minecraft aus dem Clan geworfen habe und hier deine Rolle weg genommen habe
+
+Trotzdem wünsche ich dir weiterhin viel Erfolg und vielleicht sieht man sich bald mal wieder
+LG Owner Ronja</div></div><div class='message'><span class='timestamp'>[22.04.2026 18:26:17]</span> <span class='author'>maxo_mexiko</span><div class='content'>Ja ebenfalls von mir</div></div><div class='message'><span class='timestamp'>[22.04.2026 19:08:36]</span> <span class='author'>ronja2578429</span><div class='content'>Ich schmeiße dich morgen raus in Minecraft bin heute nicht dazu gekommen ich hoffe es ist nicht schlimm</div></div><div class='message'><span class='timestamp'>[23.04.2026 14:23:40]</span> <span class='author'>maxo_mexiko</span><div class='content'>Ok</div></div><div class='message'><span class='timestamp'>[23.04.2026 17:32:43]</span> <span class='author'>ronja2578429</span><div class='content'>so du bist offiziell kein Clan Mitglied mehr viel Erfolg</div></div><div class='message'><span class='timestamp'>[24.04.2026 12:09:00]</span> <span class='author'>maxo_mexiko</span><div class='content'>Dankeschön</div></div>
+    </div>
+    </body>
+    </html>
+    
