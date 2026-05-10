@@ -1,0 +1,155 @@
+
+    <html>
+    <head>
+    <meta charset='utf-8'>
+    <title>Transcript sup-bw-sigma71837-#3</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: #ffffff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 10px;
+    }
+    .timestamp-header {
+        text-align: center;
+        color: #e0e0e0;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .message {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+    }
+    .author {
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    .timestamp {
+        font-size: 0.85em;
+        color: #b0b0b0;
+        margin-right: 8px;
+    }
+    .content {
+        color: #ffffff;
+        margin-top: 5px;
+        line-height: 1.6;
+    }
+    .attachment {
+        margin-top: 10px;
+    }
+    .attachment img {
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-top: 10px;
+    }
+    .attachment a {
+        color: #81d4fa;
+        text-decoration: none;
+        padding: 5px 10px;
+        background: rgba(129, 212, 250, 0.2);
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+    .attachment a:hover {
+        background: rgba(129, 212, 250, 0.3);
+    }
+    .embed {
+        background: rgba(47, 49, 54, 0.8);
+        border-left: 4px solid #5865f2;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1em;
+        color: #ffffff;
+    }
+    .embed p {
+        margin: 5px 0;
+        color: #dcddde;
+    }
+    .embed img {
+        max-width: 400px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed-footer {
+        font-size: 0.8em;
+        color: #b9bbbe;
+        margin-top: 10px;
+    }
+    .embed-author {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        margin: 30px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <h2>📋 Transcript von #sup-bw-sigma71837-#3</h2>
+    <div class="timestamp-header">10.05.2026 14:11:58 UTC</div>
+    <hr>
+    <div class='message'><span class='timestamp'>[10.05.2026 09:10:47]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[10.05.2026 09:10:47]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[10.05.2026 09:10:48]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[10.05.2026 09:10:50]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[10.05.2026 09:10:50]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[10.05.2026 09:10:51]</span> <span class='author'>Ticket System#7422</span><div class='content'><@1476866117833068677> <@&1502800299159588944></div></div><div class='message'><span class='timestamp'>[10.05.2026 09:10:51]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🎫 sup-bw Ticket</h3><p>ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</p><p><b>**Nutzer:**:</b> <@1476866117833068677></p><p><b>**Ticket Thema:**:</b> sup-bw</p><p><b>**Dein Ingamename:**:</b> Sigma</p><p><b>**Name und Alter:**:</b> Bg 21</p><p><b>**Erzähle was über dich:**:</b> kann gut mit leuten umgehen</p><p><b>**Deine Stärken und Schwächen:**:</b> bleibe geduldig</p><p><b>**Wieso sollten wir dich nehmen:**:</b> weil ich euch unterstützen will</p><div class='embed-footer'>Ticket von sigma71837</div></div></div><div class='message'><span class='timestamp'>[10.05.2026 09:12:19]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>✅ Ticket übernommen</h3><p>Das Ticket wird nun von <@1259566003684114483> bearbeitet.</p><div class='embed-footer'>Ticket System</div></div></div><div class='message'><span class='timestamp'>[10.05.2026 09:12:58]</span> <span class='author'>teamkamil</span><div class='content'><@1476866117833068677> kannst du talk 1 kommen</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:13:18]</span> <span class='author'>sigma71837</span><div class='content'>nee grad nd</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:13:43]</span> <span class='author'>teamkamil</span><div class='content'>Wrm?</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:13:50]</span> <span class='author'>sigma71837</span><div class='content'>weil ich nd kann</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:14:14]</span> <span class='author'>teamkamil</span><div class='content'>Ok dann per chat ?</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:14:24]</span> <span class='author'>sigma71837</span><div class='content'>ja</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:18:02]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🔓 Ticket freigegeben</h3><p><@1259566003684114483> hat das Ticket wieder freigegeben.</p><div class='embed-footer'>Ticket System</div></div></div><div class='message'><span class='timestamp'>[10.05.2026 09:18:16]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>✅ Ticket übernommen</h3><p>Das Ticket wird nun von <@1449736850775343279> bearbeitet.</p><div class='embed-footer'>Ticket System</div></div></div><div class='message'><span class='timestamp'>[10.05.2026 09:20:28]</span> <span class='author'>sigma71837</span><div class='content'>hi</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:22:33]</span> <span class='author'>silas052848</span><div class='content'>Guten Tag,
+vielen Dank für das Eröffnen deines Tickets. Ich werde mich hier um dein Anliegen kümmern und dir so schnell wie möglich weiterhelfen. Bitte schildere mir dein Anliegen möglichst detailliert, damit ich dir optimal helfen kann.</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:23:07]</span> <span class='author'>silas052848</span><div class='content'><@1476866117833068677></div></div><div class='message'><span class='timestamp'>[10.05.2026 09:23:26]</span> <span class='author'>sigma71837</span><div class='content'>Ich möchte mich gerne bewerben</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:24:43]</span> <span class='author'>silas052848</span><div class='content'>Ok was sind ihre pläne im Team</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:25:20]</span> <span class='author'>silas052848</span><div class='content'><@1476866117833068677></div></div><div class='message'><span class='timestamp'>[10.05.2026 09:27:03]</span> <span class='author'>sigma71837</span><div class='content'>Ich möchte den server verbessern und unterstützen</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:28:42]</span> <span class='author'>sigma71837</span><div class='content'><@1449736850775343279></div></div><div class='message'><span class='timestamp'>[10.05.2026 09:31:28]</span> <span class='author'>silas052848</span><div class='content'>Okay gut</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:32:03]</span> <span class='author'>silas052848</span><div class='content'>Und wie sind sie auf den clan aufmerksam geworden</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:32:13]</span> <span class='author'>silas052848</span><div class='content'><@1476866117833068677></div></div><div class='message'><span class='timestamp'>[10.05.2026 09:32:57]</span> <span class='author'>sigma71837</span><div class='content'>da ich auch opsucht spiele und den owner auf icrimax dc gefunden hab da der bio gejoint bin und euch helfen will</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:42:45]</span> <span class='author'>sigma71837</span><div class='content'><@1449736850775343279> ?</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:54:06]</span> <span class='author'>silas052848</span><div class='content'>Beantworte bitte diese Fragen bevor ich entscheide ob du angenommen wirst</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:54:10]</span> <span class='author'>silas052848</span><div class='content'>**1.Alter
+2.Geschlächt
+3.Onlinezeit 
+4.Onlinezeit letzten 7 Tage 
+5.Ingame Guthaben 
+6.Bestes/wertvollstes item
+7.kannst du auf dc reden?
+8.Geburtsdatum (Tag.Monat.Jahr)
+9.Bist du mittlerweile in einem Clan?
+10.willst in in den Clan Intern/Extern
+11.Seit wann spielst du Opsucht(/online bild)
+12.Hattest du jemals ein ban gehabt?**</div></div><div class='message'><span class='timestamp'>[10.05.2026 09:56:20]</span> <span class='author'>silas052848</span><div class='content'><@1476866117833068677></div></div><div class='message'><span class='timestamp'>[10.05.2026 09:57:49]</span> <span class='author'>sigma71837</span><div class='content'>1. 21 2. männlich 3. jeden tag unendlich 4. jeden tag 5. 3m 6. ka muss ich gucken 7. ja nur gerade nd 8. privat 9. nein will eurem beitreten 10. ja 11. 1 jahr 12. ne <@1449736850775343279></div></div><div class='message'><span class='timestamp'>[10.05.2026 10:08:31]</span> <span class='author'>silas052848</span><div class='content'>Ok ich benötige noch einen Bewerbungstag. Ich würde sie bitten um mit mir einen Termin für den Bewerbungstag auszumachen 
+
+-Silas (der Manager von <@1259566003684114483> )</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:09:19]</span> <span class='author'>sigma71837</span><div class='content'>wie meinst du dass mit bewerbungstag <@1449736850775343279></div></div><div class='message'><span class='timestamp'>[10.05.2026 10:10:08]</span> <span class='author'>silas052848</span><div class='content'>Ein bewerbungstag ist ein Tag wo wir dich testen ob du ins Team passt</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:10:30]</span> <span class='author'>sigma71837</span><div class='content'>ok wass muss ich da machen</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:12:06]</span> <span class='author'>silas052848</span><div class='content'>Wir müssen dich testen und bei diesem Test musst du ein Ticket bearbeiten wie z.b supporter einfach normales Support Ticket</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:12:21]</span> <span class='author'>sigma71837</span><div class='content'>ok dass können wir von mir aus jz machen!</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:16:43]</span> <span class='author'>teamkamil</span><div class='content'>Bewerbulgstalk ist damit gemeint :/</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:16:53]</span> <span class='author'>teamkamil</span><div class='content'><@1476866117833068677> , <@1449736850775343279></div></div><div class='message'><span class='timestamp'>[10.05.2026 10:19:07]</span> <span class='author'>sigma71837</span><div class='content'>kann aber nd reden!</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:21:24]</span> <span class='author'>teamkamil</span><div class='content'>Immer oder jetzt?</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:24:15]</span> <span class='author'>silas052848</span><div class='content'><@1476866117833068677></div></div><div class='message'><span class='timestamp'>[10.05.2026 10:26:42]</span> <span class='author'>silas052848</span><div class='content'>Guck mal diese Nachricht</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:27:16]</span> <span class='author'>silas052848</span><div class='content'><@1259566003684114483></div></div><div class='message'><span class='timestamp'>[10.05.2026 10:27:34]</span> <span class='author'>silas052848</span><div class='content'>Er hat gesagt geht gerade nicht</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:32:14]</span> <span class='author'>silas052848</span><div class='content'><@1476866117833068677></div></div><div class='message'><span class='timestamp'>[10.05.2026 10:32:35]</span> <span class='author'>silas052848</span><div class='content'>Also wann kannst du</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:47:43]</span> <span class='author'>silas052848</span><div class='content'><@1476866117833068677> ?</div></div><div class='message'><span class='timestamp'>[10.05.2026 10:52:24]</span> <span class='author'>silas052848</span><div class='content'><@1476866117833068677></div></div><div class='message'><span class='timestamp'>[10.05.2026 12:51:12]</span> <span class='author'>silas052848</span><div class='content'><@1476866117833068677> <@1259566003684114483></div></div><div class='message'><span class='timestamp'>[10.05.2026 12:51:47]</span> <span class='author'>sigma71837</span><div class='content'>was</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:52:02]</span> <span class='author'>silas052848</span><div class='content'>Kannst du jetzt nicht oder generell nicht reden</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:52:20]</span> <span class='author'>sigma71837</span><div class='content'>kan generell nd da mein mic kaputt ist</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:52:40]</span> <span class='author'>silas052848</span><div class='content'>Kannst du dir eins bestellen</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:52:55]</span> <span class='author'>silas052848</span><div class='content'><@1476866117833068677></div></div><div class='message'><span class='timestamp'>[10.05.2026 12:53:11]</span> <span class='author'>sigma71837</span><div class='content'>ja aber nd heute oder so</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:53:34]</span> <span class='author'>silas052848</span><div class='content'>In der Zeit meine ich</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:55:22]</span> <span class='author'>silas052848</span><div class='content'><@1259566003684114483> aber ungefähr eine Woche oder Monat kann er in den Talk</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:55:27]</span> <span class='author'>silas052848</span><div class='content'>Und reden</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:55:46]</span> <span class='author'>sigma71837</span><div class='content'>nein halbes jahr</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:56:47]</span> <span class='author'>silas052848</span><div class='content'>Ok</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:57:10]</span> <span class='author'>teamkamil</span><div class='content'>Dann bewirb dich dann nochmal</div></div><div class='message'><span class='timestamp'>[10.05.2026 12:57:50]</span> <span class='author'>silas052848</span><div class='content'>Weil sonst wirst du ignoriert oder abgelehnt</div></div><div class='message'><span class='timestamp'>[10.05.2026 13:33:35]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>Bewerbung - Abgelehnt</h3><p>Deine Bewerbung wurde vom Team abgelehnt.
+
+Die Gründe hierfür könnten sein:
+- Deine Bewerbung war zu kurz
+- Du hast uns nicht überzeugt
+- Du bist des Öfteren negativ aufgefallen
+- Du erfüllst die Anforderungen nicht
+
+
+Wir als Team sind nicht zur Herausgabe von Informationen von Ablehnungsgründen o.Ä. verpflichtet und verweisen daher auf unser Schweigerecht. 
+Solltest du ein weiteres Anliegen haben, steht es dir frei, dieses nun zu nennen
+
+
+Mit freundlichen Grüßen,
+TMPC Team</p><div class='embed-footer'>Tag: Abgelehnt • Erstellt von randomauto</div></div></div><div class='message'><span class='timestamp'>[10.05.2026 13:39:47]</span> <span class='author'>teamkamil</span><div class='content'><@1476866117833068677> du glaubst das wir dich dafür annehmen</div></div><div class='message'><span class='timestamp'>[10.05.2026 13:41:47]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>✅ Ticket bleibt offen</h3><p><@1476866117833068677> hat die Schließanfrage abgebrochen.</p></div></div><div class='message'><span class='timestamp'>[10.05.2026 13:42:24]</span> <span class='author'>teamkamil</span><div class='content'>Wenn du ums drohst</div></div>
+    </div>
+    </body>
+    </html>
+    
