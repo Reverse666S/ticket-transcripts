@@ -1,0 +1,139 @@
+
+    <html>
+    <head>
+    <meta charset='utf-8'>
+    <title>Transcript sup-bw-hannes_4637-#5</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: #ffffff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 10px;
+    }
+    .timestamp-header {
+        text-align: center;
+        color: #e0e0e0;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .message {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+    }
+    .author {
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    .timestamp {
+        font-size: 0.85em;
+        color: #b0b0b0;
+        margin-right: 8px;
+    }
+    .content {
+        color: #ffffff;
+        margin-top: 5px;
+        line-height: 1.6;
+    }
+    .attachment {
+        margin-top: 10px;
+    }
+    .attachment img {
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-top: 10px;
+    }
+    .attachment a {
+        color: #81d4fa;
+        text-decoration: none;
+        padding: 5px 10px;
+        background: rgba(129, 212, 250, 0.2);
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+    .attachment a:hover {
+        background: rgba(129, 212, 250, 0.3);
+    }
+    .embed {
+        background: rgba(47, 49, 54, 0.8);
+        border-left: 4px solid #5865f2;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1em;
+        color: #ffffff;
+    }
+    .embed p {
+        margin: 5px 0;
+        color: #dcddde;
+    }
+    .embed img {
+        max-width: 400px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed-footer {
+        font-size: 0.8em;
+        color: #b9bbbe;
+        margin-top: 10px;
+    }
+    .embed-author {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        margin: 30px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <h2>📋 Transcript von #sup-bw-hannes_4637-#5</h2>
+    <div class="timestamp-header">11.05.2026 18:49:18 UTC</div>
+    <hr>
+    <div class='message'><span class='timestamp'>[10.05.2026 19:07:57]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[10.05.2026 19:07:57]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[10.05.2026 19:07:57]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[10.05.2026 19:07:58]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[10.05.2026 19:07:58]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[10.05.2026 19:07:59]</span> <span class='author'>Ticket System#7422</span><div class='content'><@848484100071227412> <@&1502800299159588944></div></div><div class='message'><span class='timestamp'>[10.05.2026 19:07:59]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🎫 sup-bw Ticket</h3><p>ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</p><p><b>**Nutzer:**:</b> <@848484100071227412></p><p><b>**Ticket Thema:**:</b> sup-bw</p><p><b>**Dein Ingamename:**:</b> HannesYT</p><p><b>**Name und Alter:**:</b> Hannes 16</p><p><b>**Erzähle was über dich:**:</b> Also ich spiele schon seit 2021 auf Opsucht und der Server macht mir auch richtig spaß und ich war schon in vielen clänen aber der letzte hat sich leider aufgelöst und deswegen bin ich wieder auf der suche nach einem neuen</p><p><b>**Deine Stärken und Schwächen:**:</b> Viel Online, wenn ich etwas vorhabe setzte ich es auch um  und Schwächen ungeduldig und Rechtschreibschwäche</p><p><b>**Wieso sollten wir dich nehmen:**:</b> Ich war schon öfters Supporter und die Arbeit macht mir auch richtig spaß</p><div class='embed-footer'>Ticket von hannes_4637</div></div></div><div class='message'><span class='timestamp'>[10.05.2026 19:08:41]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>✅ Ticket übernommen</h3><p>Das Ticket wird nun von <@1449736850775343279> bearbeitet.</p><div class='embed-footer'>Ticket System</div></div></div><div class='message'><span class='timestamp'>[10.05.2026 19:13:55]</span> <span class='author'>silas052848</span><div class='content'>Guten Tag,
+vielen Dank für das Eröffnen deines Tickets. Ich werde mich hier um dein Anliegen kümmern und dir so schnell wie möglich weiterhelfen. Bitte schildere mir dein Anliegen möglichst detailliert, damit ich dir optimal helfen kann.</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:14:36]</span> <span class='author'>silas052848</span><div class='content'>Ich muss dir einmal zwölf Fragen stellen</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:15:20]</span> <span class='author'>silas052848</span><div class='content'>**1.Alter
+2.Geschlächt
+3.Onlinezeit 
+4.Onlinezeit letzten 7 Tage 
+5.Ingame Guthaben 
+6.Bestes/wertvollstes item
+7.kannst du auf dc reden?
+8.Geburtsdatum (Tag.Monat.Jahr)
+9.Bist du mittlerweile in einem Clan?
+10.willst in in den Clan Intern/Extern
+11.Seit wann spielst du Opsucht(/online bild)
+12.Hattest du jemals ein ban gehabt?**</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:15:44]</span> <span class='author'>silas052848</span><div class='content'><@848484100071227412></div></div><div class='message'><span class='timestamp'>[10.05.2026 19:21:27]</span> <span class='author'>hannes_4637</span><div class='content'>16 Männlich 1761 letzte 7tage nur 2 stunden hatte etwas pause gemacht 400k und eine Emmys Bauhacke v1 2sterne ja ich kann reden 20.09.2009 aktuell schon nach da der clan noch existiert aber nichts mehr macht alls ich würde da sofort verlassen was meinst du mit frage 10 und ja früher hatte ich mal einen bann</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:21:44]</span> <span class='author'>hannes_4637</span><div class='attachment'><img src='https://cdn.discordapp.com/attachments/1503111368461783252/1503114842083430570/Screenshot_2026-05-10_212106.png?ex=6a02d508&is=6a018388&hm=822e185ea38f968d2417af03d9592fe6ff3bb07e8fa7dd14d4015f6d1b907373&' alt='Screenshot_2026-05-10_212106.png'></div></div><div class='message'><span class='timestamp'>[10.05.2026 19:26:14]</span> <span class='author'>silas052848</span><div class='content'>Warum hattest du einen bann</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:26:28]</span> <span class='author'>silas052848</span><div class='content'><@848484100071227412></div></div><div class='message'><span class='timestamp'>[10.05.2026 19:26:51]</span> <span class='author'>hannes_4637</span><div class='content'>scaming</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:27:13]</span> <span class='author'>silas052848</span><div class='content'>Ok dann müssen wir ein bewerbungstalk ausmachen</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:28:07]</span> <span class='author'>silas052848</span><div class='content'><@848484100071227412>  <@848484100071227412></div></div><div class='message'><span class='timestamp'>[10.05.2026 19:28:15]</span> <span class='author'>hannes_4637</span><div class='content'>ja</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:29:00]</span> <span class='author'>silas052848</span><div class='content'>Weißt du wann du kannst</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:29:30]</span> <span class='author'>hannes_4637</span><div class='content'>wahrscheinlich morgen</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:30:02]</span> <span class='author'>silas052848</span><div class='content'>Okay dann um wie viel Uhr</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:30:16]</span> <span class='author'>hannes_4637</span><div class='content'>17uhr</div></div><div class='message'><span class='timestamp'>[10.05.2026 19:31:02]</span> <span class='author'>silas052848</span><div class='content'>Okay dann bis morgen</div></div><div class='message'><span class='timestamp'>[11.05.2026 12:58:34]</span> <span class='author'>teamkamil</span><div class='content'><@1449736850775343279> <@848484100071227412> bitte nicht vergessen ihr habt um 17 Uhr ein bewerbungstalk noch zu führen 😉</div></div><div class='message'><span class='timestamp'>[11.05.2026 14:37:01]</span> <span class='author'>hannes_4637</span><div class='content'>Ja hab's nicht vergessen müsste aber auf 17:15 verschieben</div></div><div class='message'><span class='timestamp'>[11.05.2026 15:13:40]</span> <span class='author'>hannes_4637</span><div class='content'>bin da</div></div><div class='message'><span class='timestamp'>[11.05.2026 15:18:51]</span> <span class='author'>hannes_4637</span><div class='content'><@1449736850775343279></div></div><div class='message'><span class='timestamp'>[11.05.2026 15:19:33]</span> <span class='author'>silas052848</span><div class='content'>Ok dann kommt Bewerbung 1</div></div><div class='message'><span class='timestamp'>[11.05.2026 15:19:41]</span> <span class='author'>silas052848</span><div class='content'>Der Talk</div></div><div class='message'><span class='timestamp'>[11.05.2026 15:20:06]</span> <span class='author'>hannes_4637</span><div class='content'>ist bei mir nicht freigeschaltet must mich hochziehen</div></div><div class='message'><span class='timestamp'>[11.05.2026 15:21:41]</span> <span class='author'>hannes_4637</span><div class='content'><@1449736850775343279></div></div><div class='message'><span class='timestamp'>[11.05.2026 15:21:49]</span> <span class='author'>silas052848</span><div class='content'>Ok</div></div><div class='message'><span class='timestamp'>[11.05.2026 15:24:57]</span> <span class='author'>hannes_4637</span><div class='content'>?</div></div><div class='message'><span class='timestamp'>[11.05.2026 15:26:39]</span> <span class='author'>silas052848</span><div class='content'>Warte klappt gerade nicht muss kurz fixen</div></div><div class='message'><span class='timestamp'>[11.05.2026 15:27:16]</span> <span class='author'>silas052848</span><div class='content'>Mach einfach in Talk eins</div></div><div class='message'><span class='timestamp'>[11.05.2026 15:27:26]</span> <span class='author'>silas052848</span><div class='content'><@848484100071227412></div></div><div class='message'><span class='timestamp'>[11.05.2026 18:07:31]</span> <span class='author'>teamkamil</span><div class='content'><@848484100071227412> ich gebe dir die test-Supporter Rolle dann kannst du dich durch Aktivität... beweisen wenn du dein Rang ausnutz wirst du sofort entfernen. Viel Spaß im Clan und ein schönen Tag noch</div></div><div class='message'><span class='timestamp'>[11.05.2026 18:15:13]</span> <span class='author'>hannes_4637</span><div class='content'>Alles kalr danke</div></div><div class='message'><span class='timestamp'>[11.05.2026 18:46:42]</span> <span class='author'>silas052848</span><div class='content'>Glückwunsch herzlich willkommen im team</div></div><div class='message'><span class='timestamp'>[11.05.2026 18:47:17]</span> <span class='author'>silas052848</span><div class='content'><@848484100071227412></div></div><div class='message'><span class='timestamp'>[11.05.2026 18:47:29]</span> <span class='author'>hannes_4637</span><div class='content'>Danke</div></div>
+    </div>
+    </body>
+    </html>
+    
