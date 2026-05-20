@@ -1,0 +1,132 @@
+
+    <html>
+    <head>
+    <meta charset='utf-8'>
+    <title>Transcript sup-bw-theo086876-#11</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: #ffffff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 10px;
+    }
+    .timestamp-header {
+        text-align: center;
+        color: #e0e0e0;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .message {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+    }
+    .author {
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    .timestamp {
+        font-size: 0.85em;
+        color: #b0b0b0;
+        margin-right: 8px;
+    }
+    .content {
+        color: #ffffff;
+        margin-top: 5px;
+        line-height: 1.6;
+    }
+    .attachment {
+        margin-top: 10px;
+    }
+    .attachment img {
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-top: 10px;
+    }
+    .attachment a {
+        color: #81d4fa;
+        text-decoration: none;
+        padding: 5px 10px;
+        background: rgba(129, 212, 250, 0.2);
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+    .attachment a:hover {
+        background: rgba(129, 212, 250, 0.3);
+    }
+    .embed {
+        background: rgba(47, 49, 54, 0.8);
+        border-left: 4px solid #5865f2;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1em;
+        color: #ffffff;
+    }
+    .embed p {
+        margin: 5px 0;
+        color: #dcddde;
+    }
+    .embed img {
+        max-width: 400px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed-footer {
+        font-size: 0.8em;
+        color: #b9bbbe;
+        margin-top: 10px;
+    }
+    .embed-author {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        margin: 30px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <h2>📋 Transcript von #sup-bw-theo086876-#11</h2>
+    <div class="timestamp-header">20.05.2026 15:29:52 UTC</div>
+    <hr>
+    <div class='message'><span class='timestamp'>[19.05.2026 18:29:33]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[19.05.2026 18:29:34]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[19.05.2026 18:29:34]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[19.05.2026 18:29:34]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[19.05.2026 18:29:34]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[19.05.2026 18:29:35]</span> <span class='author'>Ticket System#7422</span><div class='content'><@1496378654517760121> <@&1502800299159588944></div></div><div class='message'><span class='timestamp'>[19.05.2026 18:29:37]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🎫 sup-bw Ticket</h3><p>ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</p><p><b>**Nutzer:**:</b> <@1496378654517760121></p><p><b>**Ticket Thema:**:</b> sup-bw</p><p><b>**Dein Ingamename:**:</b> TheRiss44</p><p><b>**Name und Alter:**:</b> Theo 16</p><p><b>**Erzähle was über dich:**:</b> Ich spile gerne minecraft höre gerne musik und liebe es unfassbare dinge zu erschaffen</p><p><b>**Deine Stärken und Schwächen:**:</b> meine stärken sind mien gute kommunikation und gutes miteinander</p><p><b>**Wieso sollten wir dich nehmen:**:</b> weil ich ein upgrade für euer support team werde da ihr eine zusätzliche mithelfende person habt</p><div class='embed-footer'>Ticket von theo086876</div></div></div><div class='message'><span class='timestamp'>[19.05.2026 18:29:42]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>✅ Ticket übernommen</h3><p>Das Ticket wird nun von <@1259566003684114483> bearbeitet.</p><div class='embed-footer'>Ticket System</div></div></div><div class='message'><span class='timestamp'>[19.05.2026 18:29:58]</span> <span class='author'>theo086876</span><div class='content'>passt das so?</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:30:14]</span> <span class='author'>teamkamil</span><div class='content'>Jep</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:30:54]</span> <span class='author'>theo086876</span><div class='content'>wurde ich angenommen?</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:31:03]</span> <span class='author'>teamkamil</span><div class='content'>Moment</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:31:12]</span> <span class='author'>theo086876</span><div class='content'>muss ich zu irgendeinem plot oder gibt es sachen die ich wissen muss</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:32:02]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🔓 Ticket freigegeben</h3><p><@1259566003684114483> hat das Ticket wieder freigegeben.</p><div class='embed-footer'>Ticket System</div></div></div><div class='message'><span class='timestamp'>[19.05.2026 18:32:39]</span> <span class='author'>teamkamil</span><div class='content'><@1449736850775343279> wird ab jetzt dein ticket übernehmen <@1496378654517760121></div></div><div class='message'><span class='timestamp'>[19.05.2026 18:32:40]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>✅ Ticket übernommen</h3><p>Das Ticket wird nun von <@1449736850775343279> bearbeitet.</p><div class='embed-footer'>Ticket System</div></div></div><div class='message'><span class='timestamp'>[19.05.2026 18:32:58]</span> <span class='author'>theo086876</span><div class='content'>wie viele leute sind im clan</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:33:14]</span> <span class='author'>teamkamil</span><div class='content'>So 15-20</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:33:18]</span> <span class='author'>theo086876</span><div class='content'>ok</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:33:40]</span> <span class='author'>theo086876</span><div class='content'>twann bekomme ich die antwort ob ich angenommen wurde oder ob ich noch was machen muss</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:34:35]</span> <span class='author'>teamkamil</span><div class='content'>Du musst noch ein bewerbungstalk machen</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:34:56]</span> <span class='author'>theo086876</span><div class='content'>wann ist der</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:35:02]</span> <span class='author'>theo086876</span><div class='content'>geht jz?</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:36:21]</span> <span class='author'>silas052848</span><div class='content'>Nein aufgrund fehlender Zeit müssen wir einen Termin ausmachen</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:36:36]</span> <span class='author'>theo086876</span><div class='content'>und wann wäre der</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:36:50]</span> <span class='author'>silas052848</span><div class='content'>Das müssen wir regeln</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:37:00]</span> <span class='author'>theo086876</span><div class='content'>wann hast du zeit</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:38:05]</span> <span class='author'>silas052848</span><div class='content'>Morgen 18 bis 19:10uhr</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:38:27]</span> <span class='author'>theo086876</span><div class='content'>kann erst ab 19</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:38:39]</span> <span class='author'>theo086876</span><div class='content'>hab davor training</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:38:53]</span> <span class='author'>theo086876</span><div class='content'>was muss da alles besprochen werden</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:39:00]</span> <span class='author'>theo086876</span><div class='content'>twie lange dauert es ca</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:39:15]</span> <span class='author'>silas052848</span><div class='content'>Übermorgen würde 17: 20 bis 19:15</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:39:30]</span> <span class='author'>theo086876</span><div class='content'>das passt</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:39:47]</span> <span class='author'>silas052848</span><div class='content'>Dauert ca 15 bis 30 Minuten kommt halt darauf an</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:39:58]</span> <span class='author'>theo086876</span><div class='content'>was wird besprochen</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:40:14]</span> <span class='author'>theo086876</span><div class='content'>tich will halt nichts privates oder so sagen</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:40:31]</span> <span class='author'>theo086876</span><div class='content'>gibt es ein clan plot wo ich jz schon hin darf</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:41:04]</span> <span class='author'>silas052848</span><div class='content'>Ja verschiedene Szenarien und was deine Qualifikation sind und so und das mit dem Clan wird noch geplant</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:41:44]</span> <span class='author'>theo086876</span><div class='content'>darf ich das plot aber schon sehen</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:41:55]</span> <span class='author'>teamkamil</span><div class='content'>Wird bald gebaut erst</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:42:18]</span> <span class='author'>silas052848</span><div class='content'>Wir farmen noch Ressourcen</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:46:42]</span> <span class='author'>theo086876</span><div class='content'>wo ist es welcher cb</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:48:47]</span> <span class='author'>theo086876</span><div class='content'>und unter welchem namen</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:51:23]</span> <span class='author'>theo086876</span><div class='content'>haloo</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:55:43]</span> <span class='author'>teamkamil</span><div class='content'>Es gibt noch kein plot</div></div><div class='message'><span class='timestamp'>[19.05.2026 18:55:49]</span> <span class='author'>teamkamil</span><div class='content'>Wir farmen erst</div></div><div class='message'><span class='timestamp'>[20.05.2026 14:16:31]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>✅ Ticket bleibt offen</h3><p><@1449736850775343279> hat die Schließanfrage abgebrochen.</p></div></div><div class='message'><span class='timestamp'>[20.05.2026 14:16:53]</span> <span class='author'>teamkamil</span><div class='content'>Das Team soll nicht das Ticket schließen</div></div><div class='message'><span class='timestamp'>[20.05.2026 15:26:05]</span> <span class='author'>silas052848</span><div class='content'>Theo ich müsste den Termin abbrechen weil ich heute essen gehe</div></div><div class='message'><span class='timestamp'>[20.05.2026 15:29:26]</span> <span class='author'>teamkamil</span><div class='content'><@1449736850775343279> hast du das gelesen ?</div></div><div class='message'><span class='timestamp'>[20.05.2026 15:29:30]</span> <span class='author'>teamkamil</span><div class='content'>Er ist verlassen</div></div><div class='message'><span class='timestamp'>[20.05.2026 15:29:43]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>⏱️ Schließanfrage</h3><p>Dieses Ticket wird in **23.0h** automatisch geschlossen.
+
+**Grund:**
+```verlassen```
+
+Oder schließe es jetzt manuell über den Button.</p></div></div>
+    </div>
+    </body>
+    </html>
+    
