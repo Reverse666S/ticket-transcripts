@@ -1,0 +1,127 @@
+
+    <html>
+    <head>
+    <meta charset='utf-8'>
+    <title>Transcript Bugreport-phnx0937-#9</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: #ffffff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 10px;
+    }
+    .timestamp-header {
+        text-align: center;
+        color: #e0e0e0;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .message {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+    }
+    .author {
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    .timestamp {
+        font-size: 0.85em;
+        color: #b0b0b0;
+        margin-right: 8px;
+    }
+    .content {
+        color: #ffffff;
+        margin-top: 5px;
+        line-height: 1.6;
+    }
+    .attachment {
+        margin-top: 10px;
+    }
+    .attachment img {
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin-top: 10px;
+    }
+    .attachment a {
+        color: #81d4fa;
+        text-decoration: none;
+        padding: 5px 10px;
+        background: rgba(129, 212, 250, 0.2);
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+    .attachment a:hover {
+        background: rgba(129, 212, 250, 0.3);
+    }
+    .embed {
+        background: rgba(47, 49, 54, 0.8);
+        border-left: 4px solid #5865f2;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1em;
+        color: #ffffff;
+    }
+    .embed p {
+        margin: 5px 0;
+        color: #dcddde;
+    }
+    .embed img {
+        max-width: 400px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .embed-footer {
+        font-size: 0.8em;
+        color: #b9bbbe;
+        margin-top: 10px;
+    }
+    .embed-author {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #ffffff;
+    }
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        margin: 30px 0;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <h2>📋 Transcript von #Bugreport-phnx0937-#9</h2>
+    <div class="timestamp-header">23.05.2026 13:12:02 UTC</div>
+    <hr>
+    <div class='message'><span class='timestamp'>[23.05.2026 10:24:25]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[23.05.2026 10:24:25]</span> <span class='author'>Ticket System#7422</span><div class='content'><@1351258421332283395></div></div><div class='message'><span class='timestamp'>[23.05.2026 10:24:26]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>🎫 Bugreport Ticket</h3><p>ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</p><p><b>**Nutzer:**:</b> <@1351258421332283395></p><p><b>**Ticket Thema:**:</b> Bugreport</p><p><b>**Dein Ingamename:**:</b> HeroLCE_New</p><p><b>**Beschreibe den Bug:**:</b> Wenn man den command /sit macht kann man auf dem block nichts mehr platzieren wenn man auch aufsteht</p><p><b>**Datum und Uhrzeit:**:</b> 22-23.05.2026 12:22 uhr</p><p><b>**Screenshots/Videos vorhanden:**:</b> https://cdn.discordapp.com/attachments/1506311980523327579/1507690521445924904/image.png?ex=6a12d1b7&is=6a118037&hm=4f53f1b1af530cc6c8b202185ec5bf8ea6879e4e4512ed828853fd3debede4dc&</p><div class='embed-footer'>Ticket von phnx0937</div></div></div><div class='message'><span class='timestamp'>[23.05.2026 10:28:01]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[23.05.2026 10:28:26]</span> <span class='author'>pcblc</span><div class='content'><@1220795527587823738></div></div><div class='message'><span class='timestamp'>[23.05.2026 10:28:35]</span> <span class='author'>pcblc</span><div class='attachment'><img src='https://cdn.discordapp.com/attachments/1507690660298358894/1507691709595910255/image.png?ex=6a12d2d3&is=6a118153&hm=3e4e4cbf21ab0a0b4fddd343c81d174e0bd1ad0fe2c8b6ffca9d2a6a10118325&' alt='image.png'></div></div><div class='message'><span class='timestamp'>[23.05.2026 11:55:22]</span> <span class='author'>Ticket System#7422</span></div><div class='message'><span class='timestamp'>[23.05.2026 12:08:08]</span> <span class='author'>Ticket System#7422</span><div class='embed'><h3>✅ Ticket übernommen</h3><p>Das Ticket wird nun von <@1220795527587823738> bearbeitet.</p><div class='embed-footer'>Ticket System</div></div></div><div class='message'><span class='timestamp'>[23.05.2026 12:08:26]</span> <span class='author'>randomauto</span><div class='content'>Hey <@1351258421332283395> Das Problem wurde behoben</div></div>
+    </div>
+    </body>
+    </html>
+    
