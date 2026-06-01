@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcript · #Bewerbung-jojooyt-#43</title>
+  <style>
+    :root {
+      --bg-primary: #0f1117;
+      --bg-secondary: #161b27;
+      --bg-card: #1e2433;
+      --bg-message: #1a1f2e;
+      --bg-message-hover: #1e2435;
+      --accent: #5865f2;
+      --accent-glow: rgba(88, 101, 242, 0.25);
+      --accent-2: #57f287;
+      --text-primary: #e8eaf0;
+      --text-secondary: #99aab5;
+      --text-muted: #5a6a7a;
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(88,101,242,0.4);
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1e2433 0%, #161b27 100%);
+      border-bottom: 1px solid var(--border-accent);
+      padding: 32px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+    .header-text .subtitle {
+      font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      color: #7289da;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .layout { max-width: 960px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+
+    /* ── Sidebar ── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+    .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .stat-value.accent { color: var(--accent); }
+
+    .participant { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .participant-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .participant-info { display: flex; flex-direction: column; }
+    .participant-name { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .participant-count { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── Messages ── */
+    .messages-wrapper { min-width: 0; }
+    .messages-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .message {
+      display: flex; gap: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .message:hover { background: var(--bg-message-hover); }
+    .message.bot-message { background: rgba(88,101,242,0.05); }
+    .avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, #5865f2, #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .avatar.bot { background: linear-gradient(135deg, var(--accent), #57f287); }
+    .message-body { flex: 1; min-width: 0; }
+    .message-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+    .author-name { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+    .author-name.bot-tag { color: var(--accent); }
+    .bot-badge {
+      font-size: 0.65rem; background: var(--accent); color: #fff;
+      padding: 1px 5px; border-radius: 3px; font-weight: 700;
+      letter-spacing: 0.3px; text-transform: uppercase;
+    }
+    .msg-time { font-size: 0.72rem; color: var(--text-muted); }
+    .msg-content { font-size: 0.9rem; color: var(--text-primary); word-break: break-word; line-height: 1.55; }
+    .msg-content a { color: #7289da; text-decoration: none; }
+    .msg-content a:hover { text-decoration: underline; }
+
+    /* ── Embeds ── */
+    .embed {
+      background: var(--bg-message);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin-top: 8px;
+      max-width: 480px;
+    }
+    .embed-author { font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; }
+    .embed-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .embed-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; white-space: pre-wrap; }
+    .embed-field { margin-top: 8px; }
+    .embed-field-name { font-size: 0.78rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .embed-field-value { font-size: 0.82rem; color: var(--text-secondary); }
+    .embed-footer { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .embed img { max-width: 100%; border-radius: 6px; margin-top: 8px; }
+
+    /* ── Attachments ── */
+    .attachment { margin-top: 8px; }
+    .attachment img { max-width: 400px; max-height: 300px; border-radius: 8px; display: block; border: 1px solid var(--border); }
+    .attachment-file {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; margin-top: 4px;
+      text-decoration: none; color: var(--text-secondary); font-size: 0.82rem;
+    }
+    .attachment-file:hover { border-color: var(--border-accent); color: var(--text-primary); }
+
+    /* ── Date divider ── */
+    .date-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 20px 0 8px; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
+    }
+    .date-divider::before, .date-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 32px 24px;
+      font-size: 0.78rem; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-icon">🎫</div>
+    <div class="header-text">
+      <h1>#Bewerbung-jojooyt-#43</h1>
+      <div class="subtitle">Ticket Transcript · 01.06.2026 um 20:35 UTC</div>
+    </div>
+    <div class="header-badge">Transcript</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="messages-wrapper">
+    <div class="messages-title">💬 Nachrichtenverlauf</div>
+<div class="date-divider">31. May 2026</div>
+
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:29</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:29</span>
+        </div><div class="msg-content">&lt;@1060571746337566761&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:29</span>
+        </div><div class="embed" style="border-left-color:#3498db"><div class="embed-title">🎫 Bewerbung Ticket</div><div class="embed-desc">ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</div><div class="embed-field"><div class="embed-field-name">**Nutzer:**</div><div class="embed-field-value">&lt;@1060571746337566761&gt;</div></div><div class="embed-field"><div class="embed-field-name">**Ticket Thema:**</div><div class="embed-field-value">Bewerbung</div></div><div class="embed-field"><div class="embed-field-name">**Dein Ingamename:**</div><div class="embed-field-value">JojooGHG</div></div><div class="embed-field"><div class="embed-field-name">**Dein Name/Alter:**</div><div class="embed-field-value">15</div></div><div class="embed-field"><div class="embed-field-name">**Als was willst du dich bewerben:**</div><div class="embed-field-value">Dev</div></div><div class="embed-field"><div class="embed-field-name">**Erzähle uns was über dich:**</div><div class="embed-field-value">Ich bin Jojo, ich kann gut programieren mein hobby ist auch programieren</div></div><div class="embed-field"><div class="embed-field-name">**Wieso sollten wir dich nehmen:**</div><div class="embed-field-value">Weil ich gut coden kann und denn sever helfen werde</div></div><div class="embed-footer">Ticket von jojooyt</div></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">J</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Jo</span>
+          
+          <span class="msg-time">Heute um 17:31</span>
+        </div><div class="msg-content">&lt;@659478003868237824&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 17:55</span>
+        </div><div class="msg-content">Hallo &lt;@1060571746337566761&gt;,
+
+danke für die Interesse bei uns als Developer. 
+
+Kannst du mir einmal eine richtige Bewerbung schreiben.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">J</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Jo</span>
+          
+          <span class="msg-time">Heute um 17:55</span>
+        </div><div class="msg-content">Jo kann ich machen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">J</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Jo</span>
+          
+          <span class="msg-time">Heute um 18:02</span>
+        </div><div class="msg-content">Sehr geehrtes Team,
+hiermit bewerbe ich mich als Minecraft Developer für Ihr Projekt. Da ich selbst seit vielen Jahren aktiv Minecraft spiele und die technischen Hintergründe faszinierend finde, möchte ich mein Wissen nun produktiv in Ihr Team einbringen.
+Ich bringe Erfahrung in den folgenden Bereichen mit:
+
+-Programmiersprachen: Java oder Python.
+
+Ich arbeite strukturiert, lerne schnell dazu und behalte auch bei komplexen Bugs einen kühlen Kopf.
+Über eine Einladung zu einem persönlichen Gespräch oder einem kleinen Test-Coding freue ich mich.
+Mit freundlichen Grüßen,
+Jojo</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:10</span>
+        </div><div class="msg-content">Hallo &lt;@1060571746337566761&gt;,
+
+vielen Dank für deine Bewerbung.
+
+Als nächsten Schritt möchten wir dir eine Dev-Testaufgabe geben, damit wir deinen Coding-Stil, deine Struktur und deine allgemeine Herangehensweise an echte Plugin-Entwicklung besser einschätzen können.
+
+Deine Aufgabe ist es, ein Advanced Daily Rewards System für Paper 1.21.11 zu entwickeln.
+
+Anforderungen:
+- Command: /daily
+- Es soll sich ein GUI mit mindestens 7 täglichen Belohnungen öffnen
+- Jeder Tag muss eine eigene Belohnung haben
+- Spieler dürfen nur die aktuell verfügbare Belohnung claimen
+- Bereits beanspruchte Belohnungen müssen visuell markiert sein
+- Noch nicht verfügbare Belohnungen sollen gesperrt angezeigt werden
+- Wenn ein Spieler einen Tag verpasst, soll die Streak zurückgesetzt werden
+- Die Spielerdaten müssen persistent gespeichert werden
+- Die Daten müssen nach einem Serverneustart weiterhin vorhanden sein
+- Nachrichten sollen konfigurierbar sein
+- Rewards sollen konfigurierbar sein
+- Der Code soll sauber strukturiert sein und nicht in einer einzigen Klasse bestehen
+- MySQL-Support 
+
+
+Zusätzliche Erwartungen:
+- Saubere Projektstruktur
+- Gute Lesbarkeit und Wartbarkeit
+- Sinnvolle Behandlung von Sonderfällen
+- Sinnvolle Nutzung von Configs
+- Nicht alles hartcodiert
+- Entwickelt für Paper 1.21.11
+- Maven
+
+Optionale Extras, wenn du dich zusätzlich hervorheben möchtest:
+- Admin-Command zum Zurücksetzen eines Spielers
+- Countdown bis zur nächsten Belohnung
+- Sound- oder visuelles Feedback beim Claimen
+- Unterstützung für mehrere Reward-Typen
+
+Bitte sende uns am Ende:
+- den vollständigen Source Code
+- die plugin.yml
+- eine Beispiel-Config
+- eine kurze Erklärung zur Struktur des Projekts
+- sowie eine kurze Info, was vollständig umgesetzt wurde und was eventuell noch offen ist
+
+Wir achten dabei vor allem auf:
+- Code-Qualität
+- Struktur
+- Logik
+- Wartbarkeit
+- und deine allgemeine Herangehensweise an reale Plugin-Entwicklung
+
+Abgabetermin: `05.06.2026 `
+
+Viel Erfolg.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">J</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Jo</span>
+          
+          <span class="msg-time">Heute um 18:13</span>
+        </div><div class="msg-content">Danke ich werde mich mal dran setzen</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 19:33</span>
+        </div>      </div>
+    </div><div class="date-divider">01. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">J</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Jo</span>
+          
+          <span class="msg-time">Heute um 12:49</span>
+        </div><div class="msg-content">soll es deutsch?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 12:50</span>
+        </div><div class="msg-content">Ja, bitte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">J</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Jo</span>
+          
+          <span class="msg-time">Heute um 12:50</span>
+        </div><div class="msg-content">Oke mache ich</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">J</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Jo</span>
+          
+          <span class="msg-time">Heute um 13:55</span>
+        </div><div class="attachment"><a class="attachment-file" href="https://cdn.discordapp.com/attachments/1510696679228309565/1511005211026788524/Pluguin.jar?ex=6a1ee0c3&is=6a1d8f43&hm=3f8639c7b9db2d0d943b7712a2019ae155e7e7e730ed5a6cf162b793accc1333&">📎 Pluguin.jar</a></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 14:01</span>
+        </div><div class="msg-content">Bitte sende uns am Ende:
+den vollständigen Source Code
+die plugin.yml
+eine Beispiel-Config
+eine kurze Erklärung zur Struktur des Projekts
+sowie eine kurze Info, was vollständig umgesetzt wurde und was eventuell noch offen ist &lt;@1060571746337566761&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 14:04</span>
+        </div><div class="msg-content">Hallo &lt;@1060571746337566761&gt;,
+
+vielen Dank für deine Einsendung und die investierte Zeit.
+
+Nach Prüfung deiner Abgabe müssen wir dir leider mitteilen, dass wir deine Bewerbung an dieser Stelle nicht weiter berücksichtigen können.
+
+Der Grund dafür ist, dass es sich bei dem eingereichten Plugin offensichtlich nicht um eine eigenständig entwickelte Lösung handelt. Unter anderem ist in der Config eindeutig auf das Plugin `QRewards` sowie den Entwickler `qrawless` verwiesen:
+
+# =================================================================
+#                 QRewards Plugin Settings
+#                 Developer: qrawless
+# =================================================================
+
+Zusätzlich handelt es sich dabei um ein frei verfügbares Download-Plugin, wodurch die Testaufgabe nicht als eigenständige Entwicklungsleistung gewertet werden kann.
+
+Da es bei dieser Aufgabe ausdrücklich darum ging, deine eigenen Fähigkeiten in Struktur, Logik und Plugin-Entwicklung zu bewerten, können wir diese Abgabe leider nicht akzeptieren.
+
+Wir wünschen dir dennoch alles Gute für deinen weiteren Weg.
+
+Bewerbungssperre bis zum 01.09.2026
+
+Mit freundlichen Grüßen
+&lt;@659478003868237824&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">J</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Jo</span>
+          
+          <span class="msg-time">Heute um 14:19</span>
+        </div><div class="msg-content">schade aber danke</div>      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <div class="card-title">📊 Statistiken</div>
+      <div class="stat-row"><span class="stat-label">Nachrichten</span><span class="stat-value accent">17</span></div>
+      <div class="stat-row"><span class="stat-label">Teilnehmer</span><span class="stat-value">3</span></div>
+      <div class="stat-row"><span class="stat-label">Channel</span><span class="stat-value">#Bewerbung-jojooyt-#43</span></div>
+      <div class="stat-row"><span class="stat-label">Erstellt</span><span class="stat-value">01.06.2026</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👥 Teilnehmer</div>
+      
+        <div class="participant">
+          <div class="participant-avatar">T</div>
+          <div class="participant-info">
+            <span class="participant-name">Ticket System</span>
+            <span class="participant-count">4 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">J</div>
+          <div class="participant-info">
+            <span class="participant-name">Jo</span>
+            <span class="participant-count">8 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">A</div>
+          <div class="participant-info">
+            <span class="participant-name">abgxhobxn</span>
+            <span class="participant-count">5 Nachrichten</span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Ticket Transcript · #Bewerbung-jojooyt-#43 · Generiert am 01.06.2026 um 20:35:30 UTC
+</div>
+
+</body>
+</html>
