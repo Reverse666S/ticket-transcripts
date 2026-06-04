@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcript · #Support-ilyas.lah30-#66</title>
+  <style>
+    :root {
+      --bg-primary: #0f1117;
+      --bg-secondary: #161b27;
+      --bg-card: #1e2433;
+      --bg-message: #1a1f2e;
+      --bg-message-hover: #1e2435;
+      --accent: #5865f2;
+      --accent-glow: rgba(88, 101, 242, 0.25);
+      --accent-2: #57f287;
+      --text-primary: #e8eaf0;
+      --text-secondary: #99aab5;
+      --text-muted: #5a6a7a;
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(88,101,242,0.4);
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1e2433 0%, #161b27 100%);
+      border-bottom: 1px solid var(--border-accent);
+      padding: 32px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+    .header-text .subtitle {
+      font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      color: #7289da;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .layout { max-width: 960px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+
+    /* ── Sidebar ── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+    .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .stat-value.accent { color: var(--accent); }
+
+    .participant { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .participant-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .participant-info { display: flex; flex-direction: column; }
+    .participant-name { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .participant-count { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── Messages ── */
+    .messages-wrapper { min-width: 0; }
+    .messages-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .message {
+      display: flex; gap: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .message:hover { background: var(--bg-message-hover); }
+    .message.bot-message { background: rgba(88,101,242,0.05); }
+    .avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, #5865f2, #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .avatar.bot { background: linear-gradient(135deg, var(--accent), #57f287); }
+    .message-body { flex: 1; min-width: 0; }
+    .message-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+    .author-name { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+    .author-name.bot-tag { color: var(--accent); }
+    .bot-badge {
+      font-size: 0.65rem; background: var(--accent); color: #fff;
+      padding: 1px 5px; border-radius: 3px; font-weight: 700;
+      letter-spacing: 0.3px; text-transform: uppercase;
+    }
+    .msg-time { font-size: 0.72rem; color: var(--text-muted); }
+    .msg-content { font-size: 0.9rem; color: var(--text-primary); word-break: break-word; line-height: 1.55; }
+    .msg-content a { color: #7289da; text-decoration: none; }
+    .msg-content a:hover { text-decoration: underline; }
+
+    /* ── Embeds ── */
+    .embed {
+      background: var(--bg-message);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin-top: 8px;
+      max-width: 480px;
+    }
+    .embed-author { font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; }
+    .embed-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .embed-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; white-space: pre-wrap; }
+    .embed-field { margin-top: 8px; }
+    .embed-field-name { font-size: 0.78rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .embed-field-value { font-size: 0.82rem; color: var(--text-secondary); }
+    .embed-footer { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .embed img { max-width: 100%; border-radius: 6px; margin-top: 8px; }
+
+    /* ── Attachments ── */
+    .attachment { margin-top: 8px; }
+    .attachment img { max-width: 400px; max-height: 300px; border-radius: 8px; display: block; border: 1px solid var(--border); }
+    .attachment-file {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; margin-top: 4px;
+      text-decoration: none; color: var(--text-secondary); font-size: 0.82rem;
+    }
+    .attachment-file:hover { border-color: var(--border-accent); color: var(--text-primary); }
+
+    /* ── Date divider ── */
+    .date-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 20px 0 8px; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
+    }
+    .date-divider::before, .date-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 32px 24px;
+      font-size: 0.78rem; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-icon">🎫</div>
+    <div class="header-text">
+      <h1>#Support-ilyas.lah30-#66</h1>
+      <div class="subtitle">Ticket Transcript · 04.06.2026 um 22:43 UTC</div>
+    </div>
+    <div class="header-badge">Transcript</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="messages-wrapper">
+    <div class="messages-title">💬 Nachrichtenverlauf</div>
+<div class="date-divider">04. June 2026</div>
+
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 15:14</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 15:14</span>
+        </div><div class="msg-content">&lt;@1512096457878933505&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 15:14</span>
+        </div><div class="embed" style="border-left-color:#3498db"><div class="embed-title">🎫 Support Ticket</div><div class="embed-desc">ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</div><div class="embed-field"><div class="embed-field-name">**Nutzer:**</div><div class="embed-field-value">&lt;@1512096457878933505&gt;</div></div><div class="embed-field"><div class="embed-field-name">**Ticket Thema:**</div><div class="embed-field-value">Support</div></div><div class="embed-field"><div class="embed-field-name">**Dein Ingamename:**</div><div class="embed-field-value">ilyasgamingGG</div></div><div class="embed-field"><div class="embed-field-name">**Dein Anliegen:**</div><div class="embed-field-value">Ich wurde zu Unrecht gebannt ich wollte einen Hacker melden und dann hatte ich die Sachen von ihm inv und dann würde ich gebannt</div></div><div class="embed-field"><div class="embed-field-name">**Minecraft/Discord?:**</div><div class="embed-field-value">Minecraft</div></div><div class="embed-footer">Ticket von ilyas.lah30</div></div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 15:22</span>
+        </div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">D</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">derheimertobi07</span>
+          
+          <span class="msg-time">Heute um 15:24</span>
+        </div><div class="msg-content">Hey &lt;@1512096457878933505&gt;  
+Ich leite dich an &lt;@659478003868237824&gt;  weiter!
+&lt;@659478003868237824&gt;  schaust du dir das mal an?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 15:25</span>
+        </div><div class="msg-content">Denn habe ich alle Sachen gegeben</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 15:26</span>
+        </div><div class="msg-content">Ich schaue mir das heute an.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 15:26</span>
+        </div><div class="msg-content">Wann?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 15:42</span>
+        </div><div class="msg-content">Heute</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 15:43</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 16:43</span>
+        </div><div class="msg-content">Hallo</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 16:43</span>
+        </div><div class="msg-content">Bitte ich will spielen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 16:43</span>
+        </div><div class="msg-content">🙏🙏🙏</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 16:57</span>
+        </div><div class="msg-content">Pls pls</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 16:57</span>
+        </div><div class="msg-content">Bitte 🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 17:11</span>
+        </div><div class="msg-content">Hallo</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 17:11</span>
+        </div><div class="msg-content">Bitteeeeewee</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 17:11</span>
+        </div><div class="msg-content">Pls</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 17:12</span>
+        </div><div class="msg-content">Pls</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 17:12</span>
+        </div><div class="msg-content">Pls</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 17:12</span>
+        </div><div class="msg-content">Pls</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 17:12</span>
+        </div><div class="msg-content">Pls</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 17:12</span>
+        </div><div class="msg-content">Pls</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 17:28</span>
+        </div><div class="msg-content">Ich mache das sobald ich online bin</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 17:59</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 17:59</span>
+        </div><div class="msg-content">Wann den</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:14</span>
+        </div><div class="msg-content">Bist du pn</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:14</span>
+        </div><div class="msg-content">On</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:14</span>
+        </div><div class="msg-content">Warte jetzt schon 3h</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:17</span>
+        </div><div class="msg-content">Pls</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:17</span>
+        </div><div class="msg-content">Wann bist du on ):</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">D</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">derheimertobi07</span>
+          
+          <span class="msg-time">Heute um 18:19</span>
+        </div><div class="msg-content">Das oft nachfragen bringt dir nichts denn der liebe Abgxhobxn kann auch nicht hexen... Bitte gedulde dich xd</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:19</span>
+        </div><div class="msg-content">OK ):</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:29</span>
+        </div><div class="msg-content">Es gibt auch Menschen, die arbeiten müssen bitte habe Geduld</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:29</span>
+        </div><div class="msg-content">Ja mache ich ):</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:34</span>
+        </div><div class="msg-content">Hallo erstmal, du kannst mir ja schon mal sagen in welcher Verbindung du mit dem Duper bist du hast in der Welt ganz viele Fässer platziert mit Shulker Boxxen mit Netherite etc. 
+
+Und auch woher du die items hast.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:36</span>
+        </div><div class="msg-content">Was</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:36</span>
+        </div><div class="msg-content">Noch mal auf deuch</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:39</span>
+        </div><div class="msg-content">Ah die habe ich von eine Hacker frag Jupiter der hat auch ganz viele boxen bekommen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:39</span>
+        </div><div class="msg-content">In ec</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:41</span>
+        </div><div class="msg-content">Bitte du bekommst alles das sind nicht meine ich schwöre es dir ist jemand mit Q am Anfang on der hatte alles</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:42</span>
+        </div><div class="msg-content">Bin in GHG warum sollte ich so was tun und wieao sollte ich euch das sagen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:51</span>
+        </div><div class="msg-content">Ein Clan ist kein Proof für legit sein.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:51</span>
+        </div><div class="msg-content">Also komisch ist es das die Logs was anderes sagen….. überlege nochmal genau und schreib gerne nochmal</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:53</span>
+        </div><div class="msg-content">An euere Wahrheit entscheidet ihr ob ihr entbannt werdet.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:53</span>
+        </div><div class="msg-content">Ihr???</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:54</span>
+        </div><div class="msg-content">Was denn das ich die Sachen von jemand den gefunden habe</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 18:54</span>
+        </div><div class="msg-content">???</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 19:42</span>
+        </div><div class="msg-content">Bitte end Bann mich bitte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 19:43</span>
+        </div><div class="msg-content">https://abgxhobxn.space/jANU5/sUPaHOYo57.png</div><div class="embed" style="border-left-color:#5865f2"></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 19:43</span>
+        </div><div class="msg-content">https://abgxhobxn.space/jANU5/VAHEZica99.png</div><div class="embed" style="border-left-color:#5865f2"></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 19:43</span>
+        </div><div class="msg-content">https://abgxhobxn.space/jANU5/nApurOFU90.png</div><div class="embed" style="border-left-color:#5865f2"></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 19:43</span>
+        </div><div class="msg-content">Also sei bitte ehrlich.....</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 19:45</span>
+        </div><div class="msg-content">&lt;@1512096457878933505&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 20:41</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 20:44</span>
+        </div><div class="msg-content">Also bin ich perma Bann 😭</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 20:44</span>
+        </div><div class="msg-content">OK Nacht 😭😭</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 20:46</span>
+        </div><div class="msg-content">Bis bald oder so wenn wir uns überhaupt wiedersehen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 20:55</span>
+        </div><div class="msg-content">Ach ja und wenn sie mich entbannen wollen dann ja schreiben sie mir einfach</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:30</span>
+        </div><div class="msg-content">Bitte bitte end Bann mich pls ich werde nie wieder was nehmen und nicht mehr lügen bitte ich bitte sie 🙏🙏🙏🙏🙏🙏</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:31</span>
+        </div><div class="msg-content">Gib zu das du damit was zutun hast.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:33</span>
+        </div><div class="msg-content">Ich habe das gefunden und mit genommen ja ich schwöre auf alles</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:34</span>
+        </div><div class="msg-content">Ich schwöre auf alles was es gibt auf Gott und alles</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:36</span>
+        </div><div class="msg-content">Ich bitte sie bitte 😭😭😭</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:41</span>
+        </div><div class="msg-content">Bitte bitte bitteeeee</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:44</span>
+        </div><div class="msg-content">Ich schwöre ich werde alles geben das ich end Band werde bitte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:49</span>
+        </div><div class="msg-content">Ich bitte sie soooo bitte 😭</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:51</span>
+        </div><div class="msg-content">Wie alt bist du dann kann ich tawk1</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:53</span>
+        </div><div class="msg-content">Bitte Enderghg kann es beweisen mach msg und frag ihn</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:53</span>
+        </div><div class="msg-content">Mein bester Freund</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 21:58</span>
+        </div><div class="msg-content">Warum ignorieren sie mich</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 22:00</span>
+        </div><div class="msg-content">Komm tark 1 bitte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 22:01</span>
+        </div><div class="msg-content">Schreib wenn du da bist</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">N</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Noah</span>
+          
+          <span class="msg-time">Heute um 22:05</span>
+        </div><div class="msg-content">Komm bitte Talk 1</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 22:21</span>
+        </div><div class="msg-content">&lt;@1512096457878933505&gt;, wie eben besprochen bist du nun entbannt. :) Viel spaß beim spielen.</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 22:21</span>
+        </div><div class="msg-content">&lt;@1512096457878933505&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 22:21</span>
+        </div><div class="embed" style="border-left-color:#2b2d31"><div class="embed-title">Schließ-Anfrage</div><div class="embed-desc">&lt;@659478003868237824&gt; hat das Schließen des Tickets angefordert.
+
+```done```
+Bitte akzeptiere oder lehne die Anfrage über die Buttons unten ab.</div><div class="embed-footer">Automatische Ticketschließung • 04.06.2026 23:21</div></div>      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <div class="card-title">📊 Statistiken</div>
+      <div class="stat-row"><span class="stat-label">Nachrichten</span><span class="stat-value accent">77</span></div>
+      <div class="stat-row"><span class="stat-label">Teilnehmer</span><span class="stat-value">4</span></div>
+      <div class="stat-row"><span class="stat-label">Channel</span><span class="stat-value">#Support-ilyas.lah30-#66</span></div>
+      <div class="stat-row"><span class="stat-label">Erstellt</span><span class="stat-value">04.06.2026</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👥 Teilnehmer</div>
+      
+        <div class="participant">
+          <div class="participant-avatar">T</div>
+          <div class="participant-info">
+            <span class="participant-name">Ticket System</span>
+            <span class="participant-count">6 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">D</div>
+          <div class="participant-info">
+            <span class="participant-name">derheimertobi07</span>
+            <span class="participant-count">2 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">N</div>
+          <div class="participant-info">
+            <span class="participant-name">Noah</span>
+            <span class="participant-count">54 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">A</div>
+          <div class="participant-info">
+            <span class="participant-name">abgxhobxn</span>
+            <span class="participant-count">15 Nachrichten</span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Ticket Transcript · #Support-ilyas.lah30-#66 · Generiert am 04.06.2026 um 22:43:19 UTC
+</div>
+
+</body>
+</html>
