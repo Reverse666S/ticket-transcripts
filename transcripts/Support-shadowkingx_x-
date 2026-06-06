@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcript · #Support-shadowkingx_x-#47</title>
+  <style>
+    :root {
+      --bg-primary: #0f1117;
+      --bg-secondary: #161b27;
+      --bg-card: #1e2433;
+      --bg-message: #1a1f2e;
+      --bg-message-hover: #1e2435;
+      --accent: #5865f2;
+      --accent-glow: rgba(88, 101, 242, 0.25);
+      --accent-2: #57f287;
+      --text-primary: #e8eaf0;
+      --text-secondary: #99aab5;
+      --text-muted: #5a6a7a;
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(88,101,242,0.4);
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1e2433 0%, #161b27 100%);
+      border-bottom: 1px solid var(--border-accent);
+      padding: 32px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+    .header-text .subtitle {
+      font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      color: #7289da;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .layout { max-width: 960px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+
+    /* ── Sidebar ── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+    .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .stat-value.accent { color: var(--accent); }
+
+    .participant { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .participant-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .participant-info { display: flex; flex-direction: column; }
+    .participant-name { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .participant-count { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── Messages ── */
+    .messages-wrapper { min-width: 0; }
+    .messages-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .message {
+      display: flex; gap: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .message:hover { background: var(--bg-message-hover); }
+    .message.bot-message { background: rgba(88,101,242,0.05); }
+    .avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, #5865f2, #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .avatar.bot { background: linear-gradient(135deg, var(--accent), #57f287); }
+    .message-body { flex: 1; min-width: 0; }
+    .message-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+    .author-name { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+    .author-name.bot-tag { color: var(--accent); }
+    .bot-badge {
+      font-size: 0.65rem; background: var(--accent); color: #fff;
+      padding: 1px 5px; border-radius: 3px; font-weight: 700;
+      letter-spacing: 0.3px; text-transform: uppercase;
+    }
+    .msg-time { font-size: 0.72rem; color: var(--text-muted); }
+    .msg-content { font-size: 0.9rem; color: var(--text-primary); word-break: break-word; line-height: 1.55; }
+    .msg-content a { color: #7289da; text-decoration: none; }
+    .msg-content a:hover { text-decoration: underline; }
+
+    /* ── Embeds ── */
+    .embed {
+      background: var(--bg-message);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin-top: 8px;
+      max-width: 480px;
+    }
+    .embed-author { font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; }
+    .embed-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .embed-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; white-space: pre-wrap; }
+    .embed-field { margin-top: 8px; }
+    .embed-field-name { font-size: 0.78rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .embed-field-value { font-size: 0.82rem; color: var(--text-secondary); }
+    .embed-footer { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .embed img { max-width: 100%; border-radius: 6px; margin-top: 8px; }
+
+    /* ── Attachments ── */
+    .attachment { margin-top: 8px; }
+    .attachment img { max-width: 400px; max-height: 300px; border-radius: 8px; display: block; border: 1px solid var(--border); }
+    .attachment-file {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; margin-top: 4px;
+      text-decoration: none; color: var(--text-secondary); font-size: 0.82rem;
+    }
+    .attachment-file:hover { border-color: var(--border-accent); color: var(--text-primary); }
+
+    /* ── Date divider ── */
+    .date-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 20px 0 8px; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
+    }
+    .date-divider::before, .date-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 32px 24px;
+      font-size: 0.78rem; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-icon">🎫</div>
+    <div class="header-text">
+      <h1>#Support-shadowkingx_x-#47</h1>
+      <div class="subtitle">Ticket Transcript · 06.06.2026 um 21:27 UTC</div>
+    </div>
+    <div class="header-badge">Transcript</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="messages-wrapper">
+    <div class="messages-title">💬 Nachrichtenverlauf</div>
+<div class="date-divider">31. May 2026</div>
+
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 20:39</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 20:39</span>
+        </div><div class="msg-content">&lt;@1301815173031657534&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 20:39</span>
+        </div><div class="embed" style="border-left-color:#3498db"><div class="embed-title">🎫 Support Ticket</div><div class="embed-desc">ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</div><div class="embed-field"><div class="embed-field-name">**Nutzer:**</div><div class="embed-field-value">&lt;@1301815173031657534&gt;</div></div><div class="embed-field"><div class="embed-field-name">**Ticket Thema:**</div><div class="embed-field-value">Support</div></div><div class="embed-field"><div class="embed-field-name">**Dein Ingamename:**</div><div class="embed-field-value">ShadowkingX_X</div></div><div class="embed-field"><div class="embed-field-name">**Dein Anliegen:**</div><div class="embed-field-value">abgxhobxn sagte ich soll ein Ticket öffnen</div></div><div class="embed-field"><div class="embed-field-name">**Minecraft/Discord?:**</div><div class="embed-field-value">Discord</div></div><div class="embed-footer">Ticket von shadowkingx_x</div></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 20:40</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 20:52</span>
+        </div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 20:52</span>
+        </div><div class="msg-content">Also, ich habe morgen ab 10uhr Zeit</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 20:53</span>
+        </div><div class="msg-content">Joa würde bei mir auch gehen.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 20:53</span>
+        </div><div class="msg-content">Erklärst du mir dann welche 80% Eigen Verschulden der GHG Clan hat oder wie? Hab den Bezug auf die Nachricht nicht richtig verstanden</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 20:54</span>
+        </div><div class="msg-content">(Und nachlesen ist ja nicht mehr möglich da die gelöscht wurden)</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 20:56</span>
+        </div><div class="attachment"><a class="attachment-file" href="https://cdn.discordapp.com/attachments/1510744538770313236/1510748901836198009/voice-message.ogg?ex=6a25db0e&is=6a24898e&hm=1a15d4c427fb13e4f54ee542488c78b943d2e1fd44939004932f98eef46e9454&">📎 voice-message.ogg</a></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 20:59</span>
+        </div><div class="attachment"><a class="attachment-file" href="https://cdn.discordapp.com/attachments/1510744538770313236/1510749553958326352/voice-message.ogg?ex=6a25dbaa&is=6a248a2a&hm=8a3cb56c25fa303ec96c934ea3dbcc3940ca585313856e5162c0de47b08d9c10&">📎 voice-message.ogg</a></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 20:59</span>
+        </div><div class="msg-content">Kann mir das nd anhören...</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 20:59</span>
+        </div><div class="msg-content">Wieso</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:00</span>
+        </div><div class="msg-content">Wird schon geschlafen bei mir Zuhaus</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:00</span>
+        </div><div class="msg-content">Ich habe gesagt das ihr jeden zur Clan base geholt habt.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:01</span>
+        </div><div class="msg-content">Und es teilweise 4 mal am Tag war das wir die base wiederherstellt haben</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:01</span>
+        </div><div class="msg-content">So oft?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:01</span>
+        </div><div class="msg-content">Ja</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:01</span>
+        </div><div class="msg-content">Dann müssen wir mal mehr Sicherheitsmaßnahmen ergreifen... Dann versteh ich das auch</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:02</span>
+        </div><div class="msg-content">Also, wir hatten heute eine Teambesprechung und euer Clan ist am meisten gefallen, wo es darum ging Support Anfragen wegen Wiederherstellung</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:02</span>
+        </div><div class="msg-content">....</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:03</span>
+        </div><div class="msg-content">Davon krieg ich ja nd mal mit dadas das so oft passiert</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:03</span>
+        </div><div class="msg-content">Muss das mal ansprechen jetzt wo die Base eh eingenommen wurde</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:03</span>
+        </div><div class="msg-content">Ja, das fand ich auch hart. Aber ich habe oft genug zu jedem gesagt der mich immer zu euch geholt hat, wenn die Base zerstört wurde dass bittet keine TPAs angenommen werden sollen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:03</span>
+        </div><div class="msg-content">Es wurde wieder gemacht und wieder</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:03</span>
+        </div><div class="msg-content">Ja ok dann versteh ich es auch vollkommen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:04</span>
+        </div><div class="msg-content">Und jetzt habrn wir den Salat ich checke</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:04</span>
+        </div><div class="msg-content">Und wir können ja nicht jeden bannen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:05</span>
+        </div><div class="msg-content">Und ich mein es gab auch Clan Mitglieder von euch die andere Spieler in eurer Base angegriffen haben und wurden dann gekillt und haben sich gewundert, warum</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:05</span>
+        </div><div class="msg-content">Also habt ihr euch wegen Beschwerden anderer **und** weil wir jeden tp haben dazu entschieden?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:05</span>
+        </div><div class="msg-content">**Was?**</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:05</span>
+        </div><div class="msg-content">Ok da wird das mal angesprochen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:06</span>
+        </div><div class="msg-content">Also, wir haben uns dafür entschieden, weil es halt diese beiden Faktoren wir haben so viele item zurückerstattet oder Basen wiederhergestellt dass es uns irgendwann reicht</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:06</span>
+        </div><div class="msg-content">Ja ok ich checke.. also wir habrn uns sozusagen auch die chance verspielt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 21:07</span>
+        </div><div class="msg-content">Ja, es wurde halt irgendwann zu viel</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:07</span>
+        </div><div class="msg-content">Jut dann danke für die Aufklärung noch eine Frage. Meintest du das ernst mit Clan Bündnis System? Das wäre wirklich geil</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">S</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Shadowking</span>
+          
+          <span class="msg-time">Heute um 21:09</span>
+        </div><div class="msg-content">Das lir dem warteraum war ausversehem gerade falls ihr benachrichtigt werdet (verklickt) &lt;@659478003868237824&gt;</div>      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <div class="card-title">📊 Statistiken</div>
+      <div class="stat-row"><span class="stat-label">Nachrichten</span><span class="stat-value accent">37</span></div>
+      <div class="stat-row"><span class="stat-label">Teilnehmer</span><span class="stat-value">3</span></div>
+      <div class="stat-row"><span class="stat-label">Channel</span><span class="stat-value">#Support-shadowkingx_x-#47</span></div>
+      <div class="stat-row"><span class="stat-label">Erstellt</span><span class="stat-value">06.06.2026</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👥 Teilnehmer</div>
+      
+        <div class="participant">
+          <div class="participant-avatar">T</div>
+          <div class="participant-info">
+            <span class="participant-name">Ticket System</span>
+            <span class="participant-count">4 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">S</div>
+          <div class="participant-info">
+            <span class="participant-name">Shadowking</span>
+            <span class="participant-count">19 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">A</div>
+          <div class="participant-info">
+            <span class="participant-name">abgxhobxn</span>
+            <span class="participant-count">14 Nachrichten</span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Ticket Transcript · #Support-shadowkingx_x-#47 · Generiert am 06.06.2026 um 21:27:04 UTC
+</div>
+
+</body>
+</html>
