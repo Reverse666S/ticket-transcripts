@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcript · #Builder,Farmer-Bewerbung-LeonHD</title>
+  <style>
+    :root {
+      --bg-primary: #0f1117;
+      --bg-secondary: #161b27;
+      --bg-card: #1e2433;
+      --bg-message: #1a1f2e;
+      --bg-message-hover: #1e2435;
+      --accent: #5865f2;
+      --accent-glow: rgba(88, 101, 242, 0.25);
+      --accent-2: #57f287;
+      --text-primary: #e8eaf0;
+      --text-secondary: #99aab5;
+      --text-muted: #5a6a7a;
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(88,101,242,0.4);
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1e2433 0%, #161b27 100%);
+      border-bottom: 1px solid var(--border-accent);
+      padding: 32px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+    .header-text .subtitle {
+      font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      color: #7289da;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .layout { max-width: 960px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+
+    /* ── Sidebar ── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+    .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .stat-value.accent { color: var(--accent); }
+
+    .participant { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .participant-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .participant-info { display: flex; flex-direction: column; }
+    .participant-name { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .participant-count { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── Messages ── */
+    .messages-wrapper { min-width: 0; }
+    .messages-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .message {
+      display: flex; gap: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .message:hover { background: var(--bg-message-hover); }
+    .message.bot-message { background: rgba(88,101,242,0.05); }
+    .avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, #5865f2, #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .avatar.bot { background: linear-gradient(135deg, var(--accent), #57f287); }
+    .message-body { flex: 1; min-width: 0; }
+    .message-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+    .author-name { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+    .author-name.bot-tag { color: var(--accent); }
+    .bot-badge {
+      font-size: 0.65rem; background: var(--accent); color: #fff;
+      padding: 1px 5px; border-radius: 3px; font-weight: 700;
+      letter-spacing: 0.3px; text-transform: uppercase;
+    }
+    .msg-time { font-size: 0.72rem; color: var(--text-muted); }
+    .msg-content { font-size: 0.9rem; color: var(--text-primary); word-break: break-word; line-height: 1.55; }
+    .msg-content a { color: #7289da; text-decoration: none; }
+    .msg-content a:hover { text-decoration: underline; }
+
+    /* ── Embeds ── */
+    .embed {
+      background: var(--bg-message);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin-top: 8px;
+      max-width: 480px;
+    }
+    .embed-author { font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; }
+    .embed-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .embed-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; white-space: pre-wrap; }
+    .embed-field { margin-top: 8px; }
+    .embed-field-name { font-size: 0.78rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .embed-field-value { font-size: 0.82rem; color: var(--text-secondary); }
+    .embed-footer { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .embed img { max-width: 100%; border-radius: 6px; margin-top: 8px; }
+
+    /* ── Attachments ── */
+    .attachment { margin-top: 8px; }
+    .attachment img { max-width: 400px; max-height: 300px; border-radius: 8px; display: block; border: 1px solid var(--border); }
+    .attachment-file {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; margin-top: 4px;
+      text-decoration: none; color: var(--text-secondary); font-size: 0.82rem;
+    }
+    .attachment-file:hover { border-color: var(--border-accent); color: var(--text-primary); }
+
+    /* ── Date divider ── */
+    .date-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 20px 0 8px; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
+    }
+    .date-divider::before, .date-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 32px 24px;
+      font-size: 0.78rem; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-icon">🎫</div>
+    <div class="header-text">
+      <h1>#Builder,Farmer-Bewerbung-LeonHD</h1>
+      <div class="subtitle">Ticket Transcript · 13.06.2026 um 12:09 UTC</div>
+    </div>
+    <div class="header-badge">Transcript</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="messages-wrapper">
+    <div class="messages-title">💬 Nachrichtenverlauf</div>
+<div class="date-divider">05. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 09:24</span>
+        </div><div class="msg-content">&lt;@1492908871897846051&gt; das ist dein bewerbungsticket</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:24</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 09:24</span>
+        </div><div class="msg-content">Team ich kümmer mich um das Ticket</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 09:25</span>
+        </div><div class="msg-content">&lt;@1492908871897846051&gt; beantwort bitte folgende Fragen:</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:25</span>
+        </div><div class="msg-content">Ja</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 09:25</span>
+        </div><div class="embed" style="border-left-color:#0e8ae3"><div class="embed-title">Team Bewerbung</div><div class="embed-desc">Du möchtest dich für unser Team bewerben? In diesem Embed findest du die Fragen, die du uns nun bitte beantwortest:
+
+- Dein Name und Alter
+- Wann bist du online
+- Was sind deine Stärken und Schwächen
+- Wieso willst du dich bewerben?
+- Was sind deine Ziele bei uns?
+- Wieso sollten wir dich nehmen?
+
+
+Beantworte diese Fragen bitte in einem sauberen Fließtext mit mindestens **250** Wörtern. KI - geschriebene Bewerbungen werden umgehend abgelehnt.</div><div class="embed-footer">Tag: Bewerbung • Erstellt von teamkamil</div></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:26</span>
+        </div><div class="msg-content">Ich bin Leon und bin 14 Jahre alt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 09:26</span>
+        </div><div class="msg-content">Muss dann off komme später nochmal kannst die fragen schonmal beantworten</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:27</span>
+        </div><div class="msg-content">30-1h am Tag aber Dienstag bis do kann ich nicht</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:27</span>
+        </div><div class="msg-content">Nur manchmal</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:29</span>
+        </div><div class="msg-content">Meine Stärken sind ich kann gut minen und kann sehr gut in einem hilfsbereit clan arbeiten</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:29</span>
+        </div><div class="msg-content">Meine schwächen hab keine .</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:30</span>
+        </div><div class="msg-content">Weil ich sonst nicht so viel zu tuen habe</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 09:32</span>
+        </div><div class="msg-content">&lt;@1492908871897846051&gt; noch die anderen 3 punkte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:32</span>
+        </div><div class="msg-content">Ja</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 09:32</span>
+        </div><div class="msg-content">- Wieso willst du dich bewerben?
+- Was sind deine Ziele bei uns?
+- Wieso sollten wir dich nehmen?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:33</span>
+        </div><div class="msg-content">Weil ich gerne in einem hilfsbereiten clan sein möchte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:35</span>
+        </div><div class="msg-content">Ich will eine größere rolle spielen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 09:35</span>
+        </div><div class="msg-content">Weil ich ein guter Spieler bin und ich gut mit anderen Spielern umgehen kann</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 12:15</span>
+        </div><div class="msg-content">&lt;@1492908871897846051&gt; ok passt alles. Aber ich bräuchte noch ein bewerbugsgespräch um dich einschätzen zu können.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 19:36</span>
+        </div><div class="msg-content">Hab keins also nur hässlig</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 19:36</span>
+        </div><div class="msg-content">Das haus</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:36</span>
+        </div><div class="msg-content">Wie lange brauchst du für bau Aufträge c.a ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:36</span>
+        </div><div class="msg-content">Und in welchem still kannst du bauen modern ...</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 19:37</span>
+        </div><div class="msg-content">Modern ja aber habe keine Werkzeuge und keine Materialen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:37</span>
+        </div><div class="msg-content">Die bekommst du dann bei uns</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 19:37</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:38</span>
+        </div><div class="msg-content">Und du verdienst auch Geld durch aufträge</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 19:38</span>
+        </div><div class="msg-content">Wie viel</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:38</span>
+        </div><div class="msg-content">Je nach Auftrag umd welche Rolle du beim Auftrag machst</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:38</span>
+        </div><div class="msg-content">Hier der Builder Ablauf kannst dir mal durchlesen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 19:38</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 19:39</span>
+        </div><div class="msg-content">Bin ich jetzt im clan ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:39</span>
+        </div><div class="msg-content">Nach dem Gespräch ja</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:39</span>
+        </div><div class="msg-content">Aber gebe dir die trst Rolle schon</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:39</span>
+        </div><div class="msg-content"># 🏗️ Builder Team Info – Bauaufträge
+
+Alle neuen Bauaufträge werden in die **To-Do Liste** eingetragen. Dort steht, um welchen Auftrag es sich handelt und welche Informationen wichtig sind.
+
+👷‍♂️ Ein Builder kann sich anschließend einen Auftrag aussuchen und diesen übernehmen/leiten.
+⚠️ Test Builder dürfen keine Aufträge annehmen.
+
+💰 **Der Leiter des Auftrags erhält 60% des Auftragsgeldes** und ist dafür verantwortlich, dass der Auftrag rechtzeitig fertiggestellt wird.
+
+Der Auftrag kann:
+ **• alleine gebaut werden**
+oder
+**• mit weiteren Buildern** zusammen erledigt werden.
+
+🤝 Falls Helfer benötigt werden, kann der Leiter weitere Builder dazuholen.
+Die Bezahlung der Helfer übernimmt der Leiter des Auftrags selbst.
+
+📌 Jeder Bauauftrag erhält zusätzlich eine eigene Builder-Gruppe/Nummer.
+Beispiel: **@Builder-Team-1
+@Builder-Team-2 ...**
+
+Alle Builder, die an diesem Auftrag teilnehmen, gehören automatisch zu dieser Gruppe. Dadurch kann das Team einfacher informiert &amp; organisiert
+
+📌 Wichtig: Wer einen Auftrag annimmt, übernimmt automatisch die Verantwortung für Organisation, Fortschritt und Fertigstellung des Projekts.
+
+⚠️ Falls ein Auftrag nicht fertiggestellt wird, muss der Auftragsleiter dem Auftraggeber die **25% der Bezahlung zurückgeben.**
+Zusätzlich müssen je nach Fortschritt des Projekts noch **10–35% an den Clan gezahlt werden**</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:40</span>
+        </div><div class="msg-content">Das der Ablauf wenn ein Auftrag rein kommt</div>      </div>
+    </div><div class="date-divider">13. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 12:08</span>
+        </div><div class="msg-content">&lt;@1492908871897846051&gt; da du dein gespräch schon hättest kannst du das ticket nun schließen 🙂</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 12:08</span>
+        </div><div class="embed" style="border-left-color:#2ecc71"><div class="embed-title">✅ Ticket bleibt offen</div><div class="embed-desc">&lt;@1492908871897846051&gt; hat die Schließanfrage abgebrochen.</div></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 12:09</span>
+        </div><div class="msg-content">Sry</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 12:09</span>
+        </div><div class="msg-content">Falscher knof</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder,T-Farmer | FlyVessel69</span>
+          
+          <span class="msg-time">Heute um 12:09</span>
+        </div><div class="msg-content">Knopf</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 12:09</span>
+        </div><div class="embed" style="border-left-color:#2b2d31"><div class="embed-title">Schließ-Anfrage</div><div class="embed-desc">&lt;@1259566003684114483&gt; hat das Schließen des Tickets angefordert.
+
+```done```
+Bitte akzeptiere oder lehne die Anfrage über die Buttons unten ab.</div><div class="embed-footer">Automatische Ticketschließung • 13.06.2026 13:09</div></div>      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <div class="card-title">📊 Statistiken</div>
+      <div class="stat-row"><span class="stat-label">Nachrichten</span><span class="stat-value accent">43</span></div>
+      <div class="stat-row"><span class="stat-label">Teilnehmer</span><span class="stat-value">3</span></div>
+      <div class="stat-row"><span class="stat-label">Channel</span><span class="stat-value">#Builder,Farmer-Bewerbung-LeonHD</span></div>
+      <div class="stat-row"><span class="stat-label">Erstellt</span><span class="stat-value">13.06.2026</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👥 Teilnehmer</div>
+      
+        <div class="participant">
+          <div class="participant-avatar">𝗢</div>
+          <div class="participant-info">
+            <span class="participant-name">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+            <span class="participant-count">18 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">T</div>
+          <div class="participant-info">
+            <span class="participant-name">T-Builder,T-Farmer | FlyVessel69</span>
+            <span class="participant-count">22 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">T</div>
+          <div class="participant-info">
+            <span class="participant-name">Ticket System</span>
+            <span class="participant-count">3 Nachrichten</span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Ticket Transcript · #Builder,Farmer-Bewerbung-LeonHD · Generiert am 13.06.2026 um 12:09:35 UTC
+</div>
+
+</body>
+</html>
