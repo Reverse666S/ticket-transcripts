@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcript · #Bugreport-einacesaft-#175</title>
+  <style>
+    :root {
+      --bg-primary: #0f1117;
+      --bg-secondary: #161b27;
+      --bg-card: #1e2433;
+      --bg-message: #1a1f2e;
+      --bg-message-hover: #1e2435;
+      --accent: #5865f2;
+      --accent-glow: rgba(88, 101, 242, 0.25);
+      --accent-2: #57f287;
+      --text-primary: #e8eaf0;
+      --text-secondary: #99aab5;
+      --text-muted: #5a6a7a;
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(88,101,242,0.4);
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1e2433 0%, #161b27 100%);
+      border-bottom: 1px solid var(--border-accent);
+      padding: 32px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+    .header-text .subtitle {
+      font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      color: #7289da;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .layout { max-width: 960px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+
+    /* ── Sidebar ── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+    .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .stat-value.accent { color: var(--accent); }
+
+    .participant { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .participant-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .participant-info { display: flex; flex-direction: column; }
+    .participant-name { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .participant-count { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── Messages ── */
+    .messages-wrapper { min-width: 0; }
+    .messages-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .message {
+      display: flex; gap: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .message:hover { background: var(--bg-message-hover); }
+    .message.bot-message { background: rgba(88,101,242,0.05); }
+    .avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, #5865f2, #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .avatar.bot { background: linear-gradient(135deg, var(--accent), #57f287); }
+    .message-body { flex: 1; min-width: 0; }
+    .message-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+    .author-name { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+    .author-name.bot-tag { color: var(--accent); }
+    .bot-badge {
+      font-size: 0.65rem; background: var(--accent); color: #fff;
+      padding: 1px 5px; border-radius: 3px; font-weight: 700;
+      letter-spacing: 0.3px; text-transform: uppercase;
+    }
+    .msg-time { font-size: 0.72rem; color: var(--text-muted); }
+    .msg-content { font-size: 0.9rem; color: var(--text-primary); word-break: break-word; line-height: 1.55; }
+    .msg-content a { color: #7289da; text-decoration: none; }
+    .msg-content a:hover { text-decoration: underline; }
+
+    /* ── Embeds ── */
+    .embed {
+      background: var(--bg-message);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin-top: 8px;
+      max-width: 480px;
+    }
+    .embed-author { font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; }
+    .embed-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .embed-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; white-space: pre-wrap; }
+    .embed-field { margin-top: 8px; }
+    .embed-field-name { font-size: 0.78rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .embed-field-value { font-size: 0.82rem; color: var(--text-secondary); }
+    .embed-footer { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .embed img { max-width: 100%; border-radius: 6px; margin-top: 8px; }
+
+    /* ── Attachments ── */
+    .attachment { margin-top: 8px; }
+    .attachment img { max-width: 400px; max-height: 300px; border-radius: 8px; display: block; border: 1px solid var(--border); }
+    .attachment-file {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; margin-top: 4px;
+      text-decoration: none; color: var(--text-secondary); font-size: 0.82rem;
+    }
+    .attachment-file:hover { border-color: var(--border-accent); color: var(--text-primary); }
+
+    /* ── Date divider ── */
+    .date-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 20px 0 8px; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
+    }
+    .date-divider::before, .date-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 32px 24px;
+      font-size: 0.78rem; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-icon">🎫</div>
+    <div class="header-text">
+      <h1>#Bugreport-einacesaft-#175</h1>
+      <div class="subtitle">Ticket Transcript · 23.06.2026 um 12:37 UTC</div>
+    </div>
+    <div class="header-badge">Transcript</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="messages-wrapper">
+    <div class="messages-title">💬 Nachrichtenverlauf</div>
+<div class="date-divider">22. June 2026</div>
+
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 14:01</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 14:01</span>
+        </div><div class="msg-content">&lt;@1433187320915300393&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 14:01</span>
+        </div><div class="embed" style="border-left-color:#3498db"><div class="embed-title">🎫 Bugreport Ticket</div><div class="embed-desc">ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</div><div class="embed-field"><div class="embed-field-name">**Nutzer:**</div><div class="embed-field-value">&lt;@1433187320915300393&gt;</div></div><div class="embed-field"><div class="embed-field-name">**Ticket Thema:**</div><div class="embed-field-value">Bugreport</div></div><div class="embed-field"><div class="embed-field-name">**Dein Ingamename:**</div><div class="embed-field-value">.SandVK030</div></div><div class="embed-field"><div class="embed-field-name">**Beschreibe den Bug:**</div><div class="embed-field-value">Meine halbe ec ist weg gebuggt</div></div><div class="embed-field"><div class="embed-field-name">**Datum und Uhrzeit:**</div><div class="embed-field-value">22.6.2026 um 16:58 ca.</div></div><div class="embed-field"><div class="embed-field-name">**Screenshots/Videos vorhanden:**</div><div class="embed-field-value">Leider keine...</div></div><div class="embed-footer">Ticket von einacesaft</div></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 14:01</span>
+        </div><div class="msg-content">War von mein java acc meine items auf mein bedrock acc packen und dan bin ich zum spawn gegangen und aufeinmal ist alles weg...</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 15:20</span>
+        </div><div class="msg-content">Kann jmd bitte antworten möchte mir items kaufen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 16:12</span>
+        </div><div class="msg-content">Es ist im survival passiert...</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 16:12</span>
+        </div><div class="msg-content">Bin EinMultiSaft</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 16:13</span>
+        </div><div class="msg-content">Ist aber mit mein bedrock acc passiert</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 16:13</span>
+        </div><div class="msg-content">5-6 full neterithe rüssis mein full vz neterithe schwert effi 6 picke von stream die gibt es nur 1x und so...
+2 andere kisten items die limitiert sind...</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 18:07</span>
+        </div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">Y</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">YeetYoda</span>
+          
+          <span class="msg-time">Heute um 18:07</span>
+        </div><div class="msg-content">&lt;@1433187320915300393&gt; Versuch mal eine ec zu placen, dann sollte wieder alles da sein</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">Hab ich schon ging nicht</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">Aber wait ich teste noch mal</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">Y</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">YeetYoda</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">sollte aber gehen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">Wait ich mache clip und schicke hier rein</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">Muss erst on kommen xd</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:15</span>
+        </div><div class="attachment"><a class="attachment-file" href="https://cdn.discordapp.com/attachments/1518616824273571970/1518680970595663932/Screen_Recording_20260622_201421_Minecraft.mp4?ex=6a3b761f&is=6a3a249f&hm=a236c351b5a8fe359d3642eb273cc6e5a6cf1e92f1ddedd7e17bc13dd8d4f933&">📎 Screen_Recording_20260622_201421_Minecraft.mp4</a></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:16</span>
+        </div><div class="msg-content">Geht nd</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:16</span>
+        </div><div class="msg-content">Halbe ec weg und ausgerechnet meine wertvollsten items... ca. 35mio sind weg...</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:16</span>
+        </div><div class="msg-content">So 32mio-35mio sollten es sein die items...</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:22</span>
+        </div><div class="msg-content">&lt;@1046185964063707136&gt; hier ist clip</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">Y</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">YeetYoda</span>
+          
+          <span class="msg-time">Heute um 18:23</span>
+        </div><div class="msg-content">&lt;@659478003868237824&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:36</span>
+        </div><div class="msg-content">Liste mir einmal die items auf. Ich gucke einmal in den Logs von der EC nach und in deinem Inventar Logs. Das haben wir ja zum Glück</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:37</span>
+        </div><div class="msg-content">Weiß nd welche items das waren... 
+Neterithe rüssi teile mein neterithe schwert (alles full vz) shulker-kisten mit op inhalt eine effi 6 picke die es nur 1x gibt ist ein special item vom stream und vieles mehr ich weiß nd mehr genau was es war...</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:37</span>
+        </div><div class="msg-content">Weiß nur das alles zusammen ca. 35mio wert ist</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:38</span>
+        </div><div class="msg-content">Es war um ca. 16:53uhr zwichen 16:58uhr</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:38</span>
+        </div><div class="msg-content">Ich gucke einmal gleich deine Interaktionen nach und in den Logs</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:39</span>
+        </div><div class="msg-content">Okeyy danke</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:39</span>
+        </div><div class="msg-content">Kann nicht sein das die EC weg ist</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:39</span>
+        </div><div class="msg-content">Eigentlich</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:39</span>
+        </div><div class="msg-content">Ich weiß aufjedenfall da waren nur normale shulkers also die farbe normal glaube paar waren leer paar mit op loot und eine orangene mit sehr krassen stuff wie paar und 40 neterithe upgrades und neterithe baren etc.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:40</span>
+        </div><div class="msg-content">Wie?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:40</span>
+        </div><div class="msg-content">Naja weil die nicht einfach die habe Ec löscht</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:40</span>
+        </div><div class="msg-content">Wenn denn ganze EC</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:40</span>
+        </div><div class="msg-content">Kannst du mal in das inv und in die ec von EinMultiSaft gucken? Vllt ist es da rein gegangen aber bin mit sicher das ich alles mein bedrock acc gedropt habe und da in die ec gemacht habe</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:40</span>
+        </div><div class="msg-content">Ja ka..</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:41</span>
+        </div><div class="msg-content">Sonst würden sich ja mehrere Leute melden….</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:41</span>
+        </div><div class="msg-content">Nah aber fr</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:41</span>
+        </div><div class="msg-content">Nur du hast das bisher gemeldet</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:41</span>
+        </div><div class="msg-content">Als wen ich jtz ohne grund quitten würde</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:41</span>
+        </div><div class="msg-content">Ich gucke gleich bin in 20min da</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:41</span>
+        </div><div class="msg-content">Ok danke</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:41</span>
+        </div><div class="msg-content">Ist bedrock bug glaube ich</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:42</span>
+        </div><div class="msg-content">Also das haben schon viele gesagt und es ist nur als Druckmittel gewesen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:42</span>
+        </div><div class="msg-content">Ich erkläre wie es genau gewesen ist kannst du kurz call?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:42</span>
+        </div><div class="msg-content">Haben auch 10 bedrock Spieler oder so</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:42</span>
+        </div><div class="msg-content">.-.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:42</span>
+        </div><div class="msg-content">Crazy</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:42</span>
+        </div><div class="msg-content">Ich lüge aber nicht ich schwöre</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:42</span>
+        </div><div class="msg-content">Bin gerade noch auf dem Weg nach Hause</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:43</span>
+        </div><div class="msg-content">Achso oke kannst du gleich call?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 18:43</span>
+        </div><div class="msg-content">Sobald ich zuhause bin ja</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 18:44</span>
+        </div><div class="msg-content">Ok perfekt melde dich dan eif wieder am besten immer pingen xd</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:14</span>
+        </div><div class="msg-content">Bist du jtz zuhause?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:21</span>
+        </div><div class="msg-content">Können wir es jtz schnell machen bitte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:32</span>
+        </div><div class="msg-content">Bist du jtz zuhause? Sehe du spielst minecraft seit 35min xd</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 19:34</span>
+        </div><div class="msg-content">Moin! du hast die Items in /trash gelegt und nicht in /ec.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 19:34</span>
+        </div><div class="msg-content">......</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:34</span>
+        </div><div class="msg-content">Was ist /trash?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:34</span>
+        </div><div class="msg-content">Auf bedrock?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 19:34</span>
+        </div><div class="msg-content">Ja</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:34</span>
+        </div><div class="msg-content">Xd</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:34</span>
+        </div><div class="msg-content">Ok danke für die info</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 19:34</span>
+        </div><div class="msg-content">&lt;@1046185964063707136&gt;  übernimmt dann wieder hier-</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:34</span>
+        </div><div class="msg-content">Was ist /trash ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:34</span>
+        </div><div class="msg-content">Sind die items gelöscht?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">Y</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">YeetYoda</span>
+          
+          <span class="msg-time">Heute um 19:35</span>
+        </div><div class="msg-content">jupp</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:35</span>
+        </div><div class="msg-content">Nein...</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:35</span>
+        </div><div class="msg-content">Bekomme ich die wieder? Bitte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:35</span>
+        </div><div class="msg-content">Kann mich nd erinnern das ich /trash gemacht habe xd</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:36</span>
+        </div><div class="msg-content">Ich mache alles für dich das ich meine items back bekomme bitte bitte bitte🙏🙏😭😭</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">Y</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">YeetYoda</span>
+          
+          <span class="msg-time">Heute um 19:39</span>
+        </div><div class="msg-content">Das können wir leider nicht machen, du hast deine Items selber gelöscht. Wir machen da bei keinem Spieler eine Ausnahme. Du hast die Items mit /trash selber vernichtet.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:40</span>
+        </div><div class="msg-content">Hab aber kein /trash getippt wuste nd mal das es sowas gibt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:40</span>
+        </div><div class="msg-content">Hab gemacht /ec</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:40</span>
+        </div><div class="msg-content">Und dan bin ich off gegangen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:48</span>
+        </div><div class="msg-content">Merke ich mir für andere server das ich immer clips machen sollte damit es nicht kompliziert wirt und ich nd quitten muss weil ich nix mehr habe</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:48</span>
+        </div><div class="msg-content">Danke trotzdem für die Hilfe ihr könnt mein restlichen loot verlosen komme nie wieder hab fast alles verloren</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:48</span>
+        </div><div class="msg-content">So viel arbeit</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:48</span>
+        </div><div class="msg-content">Für nix</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 19:51</span>
+        </div><div class="msg-content">Was soll ich jtz spielen ja 
+Auf blockbande um alles gescammt worden von DqrkMain 
+Hier hab ich nix mehr so bockt es auch nicht mehr ich hasse mein leben</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 20:00</span>
+        </div><div class="msg-content">&lt;@1046185964063707136&gt; kann ich nd wenigstens ein teil wieder bekommen bitte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 20:00</span>
+        </div><div class="msg-content">Was kann ich dafür wen der server auf bedrock so bugt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 20:00</span>
+        </div><div class="msg-content">Nie wieder auf bedrock bei gott sogar</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 20:00</span>
+        </div><div class="msg-content">Hole nur meine items von bedrock zu java rüber</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 20:01</span>
+        </div><div class="msg-content">&lt;@1046185964063707136&gt; ey bitte ja was das für ne logik du denkst doch nicht wirklich das ich extra meine items lösche und dan ein  ticket öffne und mich beschwäre🥀</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">A</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">abgxhobxn</span>
+          
+          <span class="msg-time">Heute um 20:02</span>
+        </div><div class="msg-content">Absatz 1. Bei Verlust von Items, Ingame-Währung oder Ausrüstung wird grundsätzlich keine Erstattung geleistet. Ausnahmen liegen ausschließlich im Ermessen der Serverleitung.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 20:08</span>
+        </div><div class="msg-content">Js ok aber bitte bitte bitte hab kein bock neu zu starten</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 20:18</span>
+        </div><div class="msg-content">Hallo liebes Serverteam,
+ich möchte euch noch einmal höflich bitten, meinen Fall zu überprüfen.
+Ich habe Items im Wert von ungefähr 35 Millionen verloren. Mir ist bewusst, dass es laut euren Regeln grundsätzlich keine Erstattungen gibt und ich diese akzeptiere.
+Allerdings bin ich der Meinung, dass der Verlust nicht absichtlich entstanden ist. Ich habe nicht bewusst /trash benutzt, sondern /ec geöffnet und mich anschließend ausgeloggt. Ich wusste nicht einmal, dass es einen /trash-Befehl gibt. Falls durch einen Bug oder ein Missverständnis der Verlust entstanden ist, wäre ich euch sehr dankbar, wenn ihr meinen Fall noch einmal prüfen könntet.
+Ich spiele gerne auf eurem Server und habe sehr viel Zeit investiert. Der Verlust von Items im Wert von ca. 35 Millionen nimmt mir leider die Motivation weiterzuspielen.
+Ich bitte daher nicht um eine Sonderbehandlung, sondern lediglich darum, ob ihr aus Kulanz eine einmalige Ausnahme machen oder zumindest einen Teil der verlorenen Items ersetzen könntet.
+Falls Logs vorhanden sind, könnt ihr diese gerne überprüfen.
+Vielen Dank, dass ihr euch die Zeit nehmt, meinen Antrag noch einmal anzuschauen.
+
+Mfg | MultiSaft</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 20:38</span>
+        </div><div class="msg-content">Da letzens auch erst so ne situation gehabt</div><div class="attachment"><img src="https://cdn.discordapp.com/attachments/1518616824273571970/1518716882272915556/Screenshot_20260622_223810_Discord.jpg?ex=6a3b9791&is=6a3a4611&hm=a5a6810decab04c1e746a911ac583ff7f2400bc06d4c70706c8f8cf100167087&" alt="Screenshot_20260622_223810_Discord.jpg" loading="lazy"></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 20:39</span>
+        </div><div class="msg-content">Immer ist es bei mir so</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">E</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">EinMultiSaft</span>
+          
+          <span class="msg-time">Heute um 20:39</span>
+        </div><div class="msg-content">Genau deswegen hase ich mein scheiß leben</div>      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <div class="card-title">📊 Statistiken</div>
+      <div class="stat-row"><span class="stat-label">Nachrichten</span><span class="stat-value accent">91</span></div>
+      <div class="stat-row"><span class="stat-label">Teilnehmer</span><span class="stat-value">4</span></div>
+      <div class="stat-row"><span class="stat-label">Channel</span><span class="stat-value">#Bugreport-einacesaft-#175</span></div>
+      <div class="stat-row"><span class="stat-label">Erstellt</span><span class="stat-value">23.06.2026</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👥 Teilnehmer</div>
+      
+        <div class="participant">
+          <div class="participant-avatar">T</div>
+          <div class="participant-info">
+            <span class="participant-name">Ticket System</span>
+            <span class="participant-count">4 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">E</div>
+          <div class="participant-info">
+            <span class="participant-name">EinMultiSaft</span>
+            <span class="participant-count">64 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">Y</div>
+          <div class="participant-info">
+            <span class="participant-name">YeetYoda</span>
+            <span class="participant-count">5 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">A</div>
+          <div class="participant-info">
+            <span class="participant-name">abgxhobxn</span>
+            <span class="participant-count">18 Nachrichten</span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Ticket Transcript · #Bugreport-einacesaft-#175 · Generiert am 23.06.2026 um 12:37:09 UTC
+</div>
+
+</body>
+</html>
