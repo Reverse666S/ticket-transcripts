@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcript · #kredit-teakwondodo4_05312-#28</title>
+  <style>
+    :root {
+      --bg-primary: #0f1117;
+      --bg-secondary: #161b27;
+      --bg-card: #1e2433;
+      --bg-message: #1a1f2e;
+      --bg-message-hover: #1e2435;
+      --accent: #5865f2;
+      --accent-glow: rgba(88, 101, 242, 0.25);
+      --accent-2: #57f287;
+      --text-primary: #e8eaf0;
+      --text-secondary: #99aab5;
+      --text-muted: #5a6a7a;
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(88,101,242,0.4);
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1e2433 0%, #161b27 100%);
+      border-bottom: 1px solid var(--border-accent);
+      padding: 32px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+    .header-text .subtitle {
+      font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      color: #7289da;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .layout { max-width: 960px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+
+    /* ── Sidebar ── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+    .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .stat-value.accent { color: var(--accent); }
+
+    .participant { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .participant-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .participant-info { display: flex; flex-direction: column; }
+    .participant-name { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .participant-count { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── Messages ── */
+    .messages-wrapper { min-width: 0; }
+    .messages-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .message {
+      display: flex; gap: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .message:hover { background: var(--bg-message-hover); }
+    .message.bot-message { background: rgba(88,101,242,0.05); }
+    .avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, #5865f2, #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .avatar.bot { background: linear-gradient(135deg, var(--accent), #57f287); }
+    .message-body { flex: 1; min-width: 0; }
+    .message-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+    .author-name { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+    .author-name.bot-tag { color: var(--accent); }
+    .bot-badge {
+      font-size: 0.65rem; background: var(--accent); color: #fff;
+      padding: 1px 5px; border-radius: 3px; font-weight: 700;
+      letter-spacing: 0.3px; text-transform: uppercase;
+    }
+    .msg-time { font-size: 0.72rem; color: var(--text-muted); }
+    .msg-content { font-size: 0.9rem; color: var(--text-primary); word-break: break-word; line-height: 1.55; }
+    .msg-content a { color: #7289da; text-decoration: none; }
+    .msg-content a:hover { text-decoration: underline; }
+
+    /* ── Embeds ── */
+    .embed {
+      background: var(--bg-message);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin-top: 8px;
+      max-width: 480px;
+    }
+    .embed-author { font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; }
+    .embed-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .embed-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; white-space: pre-wrap; }
+    .embed-field { margin-top: 8px; }
+    .embed-field-name { font-size: 0.78rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .embed-field-value { font-size: 0.82rem; color: var(--text-secondary); }
+    .embed-footer { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .embed img { max-width: 100%; border-radius: 6px; margin-top: 8px; }
+
+    /* ── Attachments ── */
+    .attachment { margin-top: 8px; }
+    .attachment img { max-width: 400px; max-height: 300px; border-radius: 8px; display: block; border: 1px solid var(--border); }
+    .attachment-file {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; margin-top: 4px;
+      text-decoration: none; color: var(--text-secondary); font-size: 0.82rem;
+    }
+    .attachment-file:hover { border-color: var(--border-accent); color: var(--text-primary); }
+
+    /* ── Date divider ── */
+    .date-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 20px 0 8px; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
+    }
+    .date-divider::before, .date-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 32px 24px;
+      font-size: 0.78rem; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-icon">🎫</div>
+    <div class="header-text">
+      <h1>#kredit-teakwondodo4_05312-#28</h1>
+      <div class="subtitle">Ticket Transcript · 25.06.2026 um 18:21 UTC</div>
+    </div>
+    <div class="header-badge">Transcript</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="messages-wrapper">
+    <div class="messages-title">💬 Nachrichtenverlauf</div>
+<div class="date-divider">25. June 2026</div>
+
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:42</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:42</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:42</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:42</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:42</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:43</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:43</span>
+        </div><div class="msg-content">&lt;@1435210806840000618&gt; &lt;@&amp;1502800290888286391&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:43</span>
+        </div><div class="embed" style="border-left-color:#3498db"><div class="embed-title">🎫 kredit Ticket</div><div class="embed-desc">ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</div><div class="embed-field"><div class="embed-field-name">**Nutzer:**</div><div class="embed-field-value">&lt;@1435210806840000618&gt;</div></div><div class="embed-field"><div class="embed-field-name">**Ticket Thema:**</div><div class="embed-field-value">kredit</div></div><div class="embed-field"><div class="embed-field-name">**Dein Ingamename:**</div><div class="embed-field-value">Teakwondodo4</div></div><div class="embed-field"><div class="embed-field-name">**Welchen Kredit?:**</div><div class="embed-field-value">1000000</div></div><div class="embed-field"><div class="embed-field-name">**Welcher Zeitraum?:**</div><div class="embed-field-value">Ca. 2 Wochen</div></div><div class="embed-field"><div class="embed-field-name">**Hast du Pfand?:**</div><div class="embed-field-value">Keinen aber ich bleibe einfach bei euch</div></div><div class="embed-field"><div class="embed-field-name">**Bestätige unsere Kreditregeln:**</div><div class="embed-field-value">Ja</div></div><div class="embed-footer">Ticket von teakwondodo4_05312</div></div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:43</span>
+        </div><div class="embed" style="border-left-color:#2ecc71"><div class="embed-title">✅ Ticket übernommen</div><div class="embed-desc">Das Ticket wird nun von &lt;@1259566003684114483&gt; bearbeitet.</div><div class="embed-footer">Ticket System</div></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:43</span>
+        </div><div class="msg-content">Hallo</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:43</span>
+        </div><div class="msg-content">&lt;@1435210806840000618&gt; ich würde mich erst um deine Bewerbung kümmern ok ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:44</span>
+        </div><div class="msg-content">Ok mach das aber kann ich das geld noch heute haben</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:44</span>
+        </div><div class="msg-content">Wird schwierig</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:44</span>
+        </div><div class="msg-content">Weil wir müssen uns absichern ...</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:45</span>
+        </div><div class="msg-content">Was braucht ihr den</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:45</span>
+        </div><div class="msg-content">Ingame bestätigen ... dauert aber auch bisshen und bekomme gerade von 6 Leuten gleichzeitig Nachrichten 😅</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:46</span>
+        </div><div class="msg-content">Bitte ich brauche es</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:46</span>
+        </div><div class="msg-content">&lt;@1435210806840000618&gt; hast du ein bild von einem Bauwerk von dir ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:46</span>
+        </div><div class="msg-content">Klar</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:46</span>
+        </div><div class="msg-content">Natürlich</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:46</span>
+        </div><div class="msg-content">Sende mal bitte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:46</span>
+        </div><div class="msg-content">Und ich muss noch paar fragen stellen:</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:46</span>
+        </div><div class="attachment"><img src="https://cdn.discordapp.com/attachments/1519759823376220341/1519760786057330688/e96761e5-302a-467b-bfbf-51f465b9fa63.jpg?ex=6a3ebb07&is=6a3d6987&hm=e93a281627fca8a7c9fb340dc06bd03fb41f649e4949258b36bf318f9d99a6be&" alt="e96761e5-302a-467b-bfbf-51f465b9fa63.jpg" loading="lazy"></div><div class="attachment"><img src="https://cdn.discordapp.com/attachments/1519759823376220341/1519760786728423595/dd284504-aea1-49bf-97e4-91e64401214e.jpg?ex=6a3ebb07&is=6a3d6987&hm=2ce7d6c05288a87c70690f811fd174d965cf76f9ea7c1e0424e3d87c3102c44b&" alt="dd284504-aea1-49bf-97e4-91e64401214e.jpg" loading="lazy"></div><div class="attachment"><img src="https://cdn.discordapp.com/attachments/1519759823376220341/1519760787516948600/ae7a9239-1864-4128-8b9a-5cffdd790f96.jpg?ex=6a3ebb07&is=6a3d6987&hm=e1e5944eae1e1a5d8f102e1f5be94c1efd9ed214b2053b3356c46679778fcd99&" alt="ae7a9239-1864-4128-8b9a-5cffdd790f96.jpg" loading="lazy"></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:46</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:47</span>
+        </div><div class="msg-content">Für was willst du das geld nutzen ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:47</span>
+        </div><div class="msg-content">Ein paar op eitems dann kann ich schneller für euch farmen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:47</span>
+        </div><div class="msg-content">Weil es gibt einen ophändler</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:48</span>
+        </div><div class="msg-content">Aber du weißt schon das du das geld dann zurückgeben musst + Zinsen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:48</span>
+        </div><div class="msg-content">Ja dass weiß ich</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:48</span>
+        </div><div class="msg-content">Und ich kann auch Zinsen bezahlen wie were es als Zinsen mit einen stecken diamens</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:48</span>
+        </div><div class="msg-content">Wäre dann 1m + 20% Zinsen = am Ende 1.2m Rückzahlung</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:49</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:49</span>
+        </div><div class="msg-content">Und du musst ein 100% Kreditwert Pfand da lassen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:50</span>
+        </div><div class="msg-content">Was heißt das</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:50</span>
+        </div><div class="msg-content">Du musst items ... gebe die gleichviel wert sind</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:50</span>
+        </div><div class="msg-content">Ok ein booster seltenes plus meine ober krasse neterite Schaufel die limitiertsind</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:51</span>
+        </div><div class="msg-content">Geht das klar</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:55</span>
+        </div><div class="msg-content">&lt;@1435210806840000618&gt; bitte hier rein schreiben</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:56</span>
+        </div><div class="msg-content">Heiraten</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:57</span>
+        </div><div class="msg-content">Gemacht</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:57</span>
+        </div><div class="msg-content">Sry falsch geschrieben</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:57</span>
+        </div><div class="msg-content">😅</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:57</span>
+        </div><div class="msg-content">Muss mal fragen ob dir wer den Kredit geben will</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:58</span>
+        </div><div class="msg-content">&lt;@1220795527587823738&gt; &lt;@452878118110101515&gt; würde einer ihm den Kredit geben brauche das clangeld für das wohnungsplot 😅</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:58</span>
+        </div><div class="msg-content">Es jömmen auch nur 600k sein</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:59</span>
+        </div><div class="msg-content">Oder auch 500k dann gehe ich einfach ein bisschen farmen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:59</span>
+        </div><div class="msg-content">&lt;@1435210806840000618&gt; um aufgenommen zu werden in den Clan müsstest du ein bewerbungsgespräch machen (nicht jetzt aber allgemein) würde das gehen ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 17:59</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:00</span>
+        </div><div class="msg-content">&lt;@1435210806840000618&gt; komm auf CB1 und leg deine Pfand Items ins Inventar.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:00</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 18:00</span>
+        </div><div class="embed" style="border-left-color:#3498db"><div class="embed-title">🔓 Ticket freigegeben</div><div class="embed-desc">&lt;@1259566003684114483&gt; hat das Ticket wieder freigegeben.</div><div class="embed-footer">Ticket System</div></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:00</span>
+        </div><div class="msg-content">&lt;@1220795527587823738&gt; übernimm</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:01</span>
+        </div><div class="msg-content">Ok komme gleich</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:02</span>
+        </div><div class="msg-content">Ich bin am spawn</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:03</span>
+        </div><div class="msg-content">Ich bin neben der perk kiste</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:03</span>
+        </div><div class="msg-content">Wie heißt du? Ich finde dich nicht.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:04</span>
+        </div><div class="msg-content">ChirpyPoet1996</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:05</span>
+        </div><div class="msg-content">Wo bist du</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:05</span>
+        </div><div class="msg-content">Java oder bedrock?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:05</span>
+        </div><div class="msg-content">Gut, habe mir mal die Items angesehen. Da deine "Oberkrasse Netheriteschaufel" lediglich eine Harzschaufel ist und sowohl sie als auch das Boosterpack einen Gesamtwert von 250k haben, musst du dir andere Items suchen, die auf den Preis von 1mio kommen.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:06</span>
+        </div><div class="msg-content">Nein warte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:07</span>
+        </div><div class="msg-content">Die neterite Schaufel  Harzschsufel limitiert mit behutsamkeit halbarkeit3 reporter 2 Effizienz 5</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">Ja. Das weiß ich. Ich habe selber ca 34 Stück davon, sie mag limitiert sein, das macht sie aber nicht wertvoller. Ihr Wert beläuft sich auf gerade mal 100k</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">Achso dan gebe ich nich ein paar Sachen dazu kann es auch dann will ich nur 500k abholen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:09</span>
+        </div><div class="msg-content">Dann leg die Items bitte in dein Inventar.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:09</span>
+        </div><div class="msg-content">Noch ein getrockneter gehst und ein Schild mit Haltbarkeit 3</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:10</span>
+        </div><div class="msg-content">Das kommt auf keine 300k, such bitte was wertvolleres.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:10</span>
+        </div><div class="msg-content">Aber woher kannst du die sachen in meinen Inventar sehen wer bisttd u überhaupt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:10</span>
+        </div><div class="msg-content">Ich bin ein Platin Spieler, ich habe die nötigen Rechte dazu.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:11</span>
+        </div><div class="msg-content">Und 4 Steaks eisen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:11</span>
+        </div><div class="msg-content">Und 57 knochenblöcke</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:12</span>
+        </div><div class="msg-content">Ist das jetzt genug</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:13</span>
+        </div><div class="msg-content">Nein.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:13</span>
+        </div><div class="msg-content">Das sind noch immer keine 300k</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:13</span>
+        </div><div class="msg-content">Wie viel fällt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:13</span>
+        </div><div class="msg-content">Noch</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:13</span>
+        </div><div class="msg-content">327k musst du noch an Itemwert aufbringen.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:14</span>
+        </div><div class="msg-content">Ein Schildkröten egg</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:14</span>
+        </div><div class="msg-content">Reicht noch lange nicht.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:15</span>
+        </div><div class="msg-content">Wie viel ist ein Reparatur Buch wert</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:15</span>
+        </div><div class="msg-content">2,5k</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:15</span>
+        </div><div class="msg-content">Dann 3 davon</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:15</span>
+        </div><div class="msg-content">Sind noch immer nur 7,5k.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:16</span>
+        </div><div class="msg-content">Und 36 winkugeln</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:16</span>
+        </div><div class="msg-content">Kann bisshen dauern wahrscheinlich 😅</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:16</span>
+        </div><div class="msg-content">Du scheinst noch etwas neuer auf dem Server zu sein, alles was du im Inventar hast reicht gerade mal für 310k.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:16</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:17</span>
+        </div><div class="msg-content">Ja ich bin noch neu deswegen brauche ich Geld  dann kann ich aber schnell viel mehr machen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:17</span>
+        </div><div class="msg-content">Das wird schwer, eine Effizienz 6 Spitzhacke kostet dich bereits 2,5mio mindestens</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:18</span>
+        </div><div class="msg-content">Egal ich könnte dann eine guten shop bauen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:18</span>
+        </div><div class="msg-content">Dafür haben wir die Builder.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:18</span>
+        </div><div class="msg-content">Du kannst mein ganzes Haus haben wenn du willst sieht</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:19</span>
+        </div><div class="msg-content">Das bringt mir nichts. Ein Pfand **muss** immer ein Item sein</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:19</span>
+        </div><div class="msg-content">Schade können wir so machen du gibst mir geld und gebe morgen die restlichen eitems</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:19</span>
+        </div><div class="msg-content">Nein.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:20</span>
+        </div><div class="msg-content">30 rogold</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:20</span>
+        </div><div class="msg-content">Wertlos.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">C</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">CTO | RandomAuto «Nico»</span>
+          
+          <span class="msg-time">Heute um 18:20</span>
+        </div><div class="msg-content">Hol dir erst einmal bessere Items und melde dich dann gerne erneut bei uns. Diese Diskussion führt uns ins Leere.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">M</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Moin 54</span>
+          
+          <span class="msg-time">Heute um 18:21</span>
+        </div><div class="msg-content">37 windcharch</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 18:21</span>
+        </div><div class="msg-content">&lt;@1435210806840000618&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 18:21</span>
+        </div><div class="embed" style="border-left-color:#2b2d31"><div class="embed-title">Schließ-Anfrage</div><div class="embed-desc">&lt;@1220795527587823738&gt; hat das Schließen des Tickets angefordert.
+
+```Done```
+Bitte akzeptiere oder lehne die Anfrage über die Buttons unten ab.</div><div class="embed-footer">Automatische Ticketschließung • 26.06.2026 06:21</div></div>      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <div class="card-title">📊 Statistiken</div>
+      <div class="stat-row"><span class="stat-label">Nachrichten</span><span class="stat-value accent">101</span></div>
+      <div class="stat-row"><span class="stat-label">Teilnehmer</span><span class="stat-value">4</span></div>
+      <div class="stat-row"><span class="stat-label">Channel</span><span class="stat-value">#kredit-teakwondodo4_05312-#28</span></div>
+      <div class="stat-row"><span class="stat-label">Erstellt</span><span class="stat-value">25.06.2026</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👥 Teilnehmer</div>
+      
+        <div class="participant">
+          <div class="participant-avatar">T</div>
+          <div class="participant-info">
+            <span class="participant-name">Ticket System</span>
+            <span class="participant-count">12 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">M</div>
+          <div class="participant-info">
+            <span class="participant-name">Moin 54</span>
+            <span class="participant-count">49 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">𝗢</div>
+          <div class="participant-info">
+            <span class="participant-name">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+            <span class="participant-count">20 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">C</div>
+          <div class="participant-info">
+            <span class="participant-name">CTO | RandomAuto «Nico»</span>
+            <span class="participant-count">20 Nachrichten</span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Ticket Transcript · #kredit-teakwondodo4_05312-#28 · Generiert am 25.06.2026 um 18:21:14 UTC
+</div>
+
+</body>
+</html>
