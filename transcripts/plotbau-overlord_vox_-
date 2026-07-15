@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcript · #plotbau-overlord_vox_-#23</title>
+  <style>
+    :root {
+      --bg-primary: #0f1117;
+      --bg-secondary: #161b27;
+      --bg-card: #1e2433;
+      --bg-message: #1a1f2e;
+      --bg-message-hover: #1e2435;
+      --accent: #5865f2;
+      --accent-glow: rgba(88, 101, 242, 0.25);
+      --accent-2: #57f287;
+      --text-primary: #e8eaf0;
+      --text-secondary: #99aab5;
+      --text-muted: #5a6a7a;
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(88,101,242,0.4);
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1e2433 0%, #161b27 100%);
+      border-bottom: 1px solid var(--border-accent);
+      padding: 32px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+    .header-text .subtitle {
+      font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      color: #7289da;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .layout { max-width: 960px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+
+    /* ── Sidebar ── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+    .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .stat-value.accent { color: var(--accent); }
+
+    .participant { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .participant-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .participant-info { display: flex; flex-direction: column; }
+    .participant-name { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .participant-count { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── Messages ── */
+    .messages-wrapper { min-width: 0; }
+    .messages-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .message {
+      display: flex; gap: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .message:hover { background: var(--bg-message-hover); }
+    .message.bot-message { background: rgba(88,101,242,0.05); }
+    .avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, #5865f2, #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .avatar.bot { background: linear-gradient(135deg, var(--accent), #57f287); }
+    .message-body { flex: 1; min-width: 0; }
+    .message-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+    .author-name { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+    .author-name.bot-tag { color: var(--accent); }
+    .bot-badge {
+      font-size: 0.65rem; background: var(--accent); color: #fff;
+      padding: 1px 5px; border-radius: 3px; font-weight: 700;
+      letter-spacing: 0.3px; text-transform: uppercase;
+    }
+    .msg-time { font-size: 0.72rem; color: var(--text-muted); }
+    .msg-content { font-size: 0.9rem; color: var(--text-primary); word-break: break-word; line-height: 1.55; }
+    .msg-content a { color: #7289da; text-decoration: none; }
+    .msg-content a:hover { text-decoration: underline; }
+
+    /* ── Embeds ── */
+    .embed {
+      background: var(--bg-message);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin-top: 8px;
+      max-width: 480px;
+    }
+    .embed-author { font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; }
+    .embed-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .embed-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; white-space: pre-wrap; }
+    .embed-field { margin-top: 8px; }
+    .embed-field-name { font-size: 0.78rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .embed-field-value { font-size: 0.82rem; color: var(--text-secondary); }
+    .embed-footer { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .embed img { max-width: 100%; border-radius: 6px; margin-top: 8px; }
+
+    /* ── Attachments ── */
+    .attachment { margin-top: 8px; }
+    .attachment img { max-width: 400px; max-height: 300px; border-radius: 8px; display: block; border: 1px solid var(--border); }
+    .attachment-file {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; margin-top: 4px;
+      text-decoration: none; color: var(--text-secondary); font-size: 0.82rem;
+    }
+    .attachment-file:hover { border-color: var(--border-accent); color: var(--text-primary); }
+
+    /* ── Date divider ── */
+    .date-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 20px 0 8px; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
+    }
+    .date-divider::before, .date-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 32px 24px;
+      font-size: 0.78rem; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-icon">🎫</div>
+    <div class="header-text">
+      <h1>#plotbau-overlord_vox_-#23</h1>
+      <div class="subtitle">Ticket Transcript · 15.07.2026 um 12:31 UTC</div>
+    </div>
+    <div class="header-badge">Transcript</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="messages-wrapper">
+    <div class="messages-title">💬 Nachrichtenverlauf</div>
+<div class="date-divider">14. June 2026</div>
+
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:16</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:16</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:16</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:16</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:16</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:16</span>
+        </div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:16</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; &lt;@&amp;1502800290888286391&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 17:16</span>
+        </div><div class="embed" style="border-left-color:#3498db"><div class="embed-title">🎫 plotbau Ticket</div><div class="embed-desc">ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</div><div class="embed-field"><div class="embed-field-name">**Nutzer:**</div><div class="embed-field-value">&lt;@1384605619087999087&gt;</div></div><div class="embed-field"><div class="embed-field-name">**Ticket Thema:**</div><div class="embed-field-value">plotbau</div></div><div class="embed-field"><div class="embed-field-name">**Dein Ingamename:**</div><div class="embed-field-value">CEO_VOX_</div></div><div class="embed-field"><div class="embed-field-name">**Kann gefunden werden:**</div><div class="embed-field-value">auf CB 5 Koordinaten: 
+-8168.339 / 66.00000 / 931.767</div></div><div class="embed-field"><div class="embed-field-name">**Details für uns:**</div><div class="embed-field-value">ist ein Gewächshaus oder besser gesagt die hülle. ich habe ein Bild wie es aussehen kann (muss nicht so aussehen nur ähnlich). um die Materialien kümmere ich mich selbst. mir muss nur gesagt werden welche und wieviel benötigt werden. zb. auf Private Welt vorbauen und material liste schicken.</div></div><div class="embed-field"><div class="embed-field-name">**Zeitraum:**</div><div class="embed-field-value">egal wie lange</div></div><div class="embed-footer">Ticket von overlord_vox_</div></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 17:17</span>
+        </div><div class="msg-content">dass soll gebaut werden.</div><div class="attachment"><img src="https://cdn.discordapp.com/attachments/1515766935978250310/1515767032539516958/image.png?ex=6a58694e&is=6a5717ce&hm=016843acd0d87c4d2fefdbf746309f72af1ef69795224cdd41b680a1e9a45d7f&" alt="image.png" loading="lazy"></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 17:22</span>
+        </div><div class="msg-content">mit egal wie lange meinte ich: wie lange ihr braucht das vor zu bauen und ich die Materialien besorgen kann + bau.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:29</span>
+        </div><div class="msg-content">Ich frage wer das machen würde wieviel würdest du zahlen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 17:30</span>
+        </div><div class="msg-content">kommt drauf an welche Materialien ihr davon verwendet (vom Bild) ich würde sagen 90k - max 150k oder wen wirklich nötig 200k</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:32</span>
+        </div><div class="msg-content">Wie groß ist dein plot überhaupt weil sieht bissle groß aus ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:32</span>
+        </div><div class="msg-content">Für 200k machen wir genau so</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 17:32</span>
+        </div><div class="msg-content">wie gesagt mus nicht genauso ausehen und materialien kan ich auch teils selbst besorgen.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 17:33</span>
+        </div><div class="msg-content">und die bienen Nester können wegbleiben. das war ein Fehler der KI</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:02</span>
+        </div><div class="msg-content">sobald ihr mit dem Vorbau fertig seit (in Creative Welt oder so) und schickt mir dann die material liste ich kümmere mich um den Rest (also die Materialien) sobald ich sie habe könnt ihr anfangen zu bauen mit Litematica oder so. ich gebe euch oder den builder dann Trust auf dem Grundstück.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:03</span>
+        </div><div class="msg-content">Das würde dann das doppelte kosten das verbauen farme das was du siehst auf dem bild glaß holz...</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:09</span>
+        </div><div class="msg-content">warum kostet es dann das doppelte? das check ich nicht. ihr könnt auch die Materialien abschätzen Glas und holz ist schnell besorgt und stein auch. bei den Eisenkitten sollte eigentlich auch nicht so schwer sein.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:28</span>
+        </div><div class="msg-content">?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:02</span>
+        </div><div class="msg-content">Ja aber das kostet doppelte Zeit wenn wir es privatserver machen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:03</span>
+        </div><div class="msg-content">Die Items sind selbst an sich net teuer</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:12</span>
+        </div><div class="msg-content">ok schätzt mal so wie viel ihr braucht (welche Items und wie viele in Stacks ) und ich besorge es. dann müsst ihr es nicht vorbauen. und wen was fehlt besorge ich das fehlende. ich bin nicht so gut im schätzen.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:12</span>
+        </div><div class="msg-content">Ok moment</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:14</span>
+        </div><div class="msg-content">5 stacks glaß
+6 stacks Steinziegel
+3 stack holz (birke oder eiche...)</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:14</span>
+        </div><div class="msg-content">+die ganzen deko items auf dem Bild und die kleinichkeiten</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:14</span>
+        </div><div class="msg-content">**Wie groß ist den dein plot?**</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:15</span>
+        </div><div class="msg-content">ok ich dachte das wäre entrindetes Fichten holz. aber eiche ist auch gut ich habe ein 4rer merge also 2mal 2 wen ihr großer braucht ich habe insgesamt 6 zu Verfügung</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:16</span>
+        </div><div class="msg-content">Ne 2x2 sollte passen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:16</span>
+        </div><div class="msg-content">und die Items habe ich schon außer glas das muss ich noch machen aber das ist nicht so schwer</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:18</span>
+        </div><div class="msg-content">ich gehe online schick mit tpa und ich gebe dir schonmal Trust die Items sind dann spätestens morgen in Kisten auf dem plot baut bitte mittig. wie viel wäre das dann als Bezahlung? reichen 90k ? oder mehr?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:19</span>
+        </div><div class="msg-content">Würde 150k kosten dann</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:19</span>
+        </div><div class="msg-content">Kann aktuell nicht online</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:20</span>
+        </div><div class="msg-content">Mein ingame ist : .TeamKamil9124</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:20</span>
+        </div><div class="msg-content">ok. 150k sind in Ordnung</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:20</span>
+        </div><div class="msg-content">Aber geld vorraus</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:21</span>
+        </div><div class="msg-content"># 🏗️ TPMC BUILD-SERVICE – BEDINGUNGEN
+
+Mit der Erstellung eines Bauauftrags erklärst du dich mit den folgenden Bedingungen einverstanden:
+
+**📋 Auftragsangaben**
+
+Bitte gib alle wichtigen Informationen vollständig an:
+
+- Art des Bauwerks
+- Größe
+- Baustil
+- Materialien
+- Budget
+- Standort
+- Fertigstellungstermin (optional)
+
+Fehlende oder ungenaue Angaben können zu Abweichungen führen. In diesem Fall entscheidet das TPMC Build-Team nach eigenem Ermessen.
+
+**⏳ Fertigstellung**
+
+Wird kein Fertigstellungstermin angegeben, besteht keine feste Zeitvorgabe für unsere Builder.
+
+Ein vereinbarter Endtermin kann nach Baubeginn nicht mehr geändert werden.
+
+**💰 Erstattungen**
+
+Erstattungen können nur bis maximal 3 Tage nach Fertigstellung beantragt werden.
+
+Es können höchstens 25 % des gezahlten Betrags erstattet werden. Die Höhe der Erstattung entscheidet die Clan- bzw. Bauleitung.
+
+**🏗️ Änderungen**
+
+Größere Änderungen oder Erweiterungen nach Baubeginn können abgelehnt oder zusätzlich berechnet werden.
+
+**✅ Bestätigung**
+
+Wenn du mit diesen Bedingungen einverstanden bist, antworte mit:
+
+**Bestätigen**
+
+Erst danach wird dein Auftrag bearbeitet.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:22</span>
+        </div><div class="msg-content">Bestätigung. ich schicke es dann morgen sobald du online bist.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:22</span>
+        </div><div class="msg-content">Bitte schreibe **Bestätigen**</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:22</span>
+        </div><div class="msg-content">Bestätigen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:53</span>
+        </div><div class="msg-content">ich füge noch ein par extra deko Blöcke/Items hinzu die ihr verwenden könnt wen ihr wollt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 20:07</span>
+        </div><div class="msg-content">so es sollte alles in den Truhen sein wen was fehlt einfach melden.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 20:08</span>
+        </div><div class="msg-content">und ge-Trustet bist du auch. wen du noch weiter zum bauen brauchst Truste ich diese natürlich auch. viel spaß beim bauen 🏗️  und das geld bekomst du morgen wie besprochen bin ab ca. 16 Uhr online.</div>      </div>
+    </div><div class="date-divider">15. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:47</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; nochmal als info an dich das Geld brauchen wir im vorraus weil sonst fangen wir nicht an</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:17</span>
+        </div><div class="msg-content">ja wann bist du den online? kann es dir nicht geben wen du nicht online bist.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:17</span>
+        </div><div class="msg-content">Morgen ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:17</span>
+        </div><div class="msg-content">und jetzt?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:18</span>
+        </div><div class="msg-content">schnell online kommen ich payen und fertig.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:19</span>
+        </div><div class="msg-content">Schwierig</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:20</span>
+        </div><div class="msg-content">und warum?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:20</span>
+        </div><div class="msg-content">Wäre es ok wenn es 150k kostet dann gehts es auch schneller</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:20</span>
+        </div><div class="msg-content">ja ist in ordnung.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:21</span>
+        </div><div class="msg-content">Was ist dein ingame name ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:22</span>
+        </div><div class="msg-content">steht doch eigentlich im ticket ich heize CEO_VOX</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:22</span>
+        </div><div class="msg-content">_</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:22</span>
+        </div><div class="msg-content">Muss off kann erst morgen wieder</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:22</span>
+        </div><div class="msg-content">Java ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:22</span>
+        </div><div class="msg-content">ja. und wan bist du on?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:22</span>
+        </div><div class="msg-content">Kann erst morgen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:23</span>
+        </div><div class="msg-content">wan morgen? 16 Uhr 17Uhr?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:23</span>
+        </div><div class="msg-content">Sry klappt heut net</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:24</span>
+        </div><div class="msg-content">?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:31</span>
+        </div><div class="msg-content">Schreibe dir dann</div>      </div>
+    </div><div class="date-divider">16. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 15:14</span>
+        </div><div class="msg-content">bist du online ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 15:15</span>
+        </div><div class="msg-content">ich würde schon gerne zahlen. damit der bau losgehen kann</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 17:12</span>
+        </div><div class="msg-content">Bald kann ich on &lt;@1384605619087999087&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 17:39</span>
+        </div><div class="msg-content">also Wirt das heute noch was ? oder diese Woche ? am Wochenende bin ich vielleicht nicht da.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:07</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; kannst du on ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">ja.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">Was dein ingame ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:09</span>
+        </div><div class="msg-content">wie ich schon mehrmals sagte CEO_VOX</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:09</span>
+        </div><div class="msg-content">_</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:09</span>
+        </div><div class="msg-content">Ok bin in 1min on</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:09</span>
+        </div><div class="msg-content">Mein ingame .Teamkamil9124</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:09</span>
+        </div><div class="msg-content">ok ich auch so ca.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:11</span>
+        </div><div class="msg-content">150 k waren das oder?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:12</span>
+        </div><div class="msg-content">???</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:12</span>
+        </div><div class="msg-content">Ja bist du on ich bin auf cb1</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:13</span>
+        </div><div class="msg-content">nein das plot ist auf CB 5</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:13</span>
+        </div><div class="msg-content">Ahso ok komme bist du schon on?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:13</span>
+        </div><div class="msg-content">schick einfach tpa und mache ein home oder so</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:14</span>
+        </div><div class="msg-content">und ich schike dan das geld</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:14</span>
+        </div><div class="msg-content">Was ist dein ingame weil CEO_VOX ist es nicht schreib mal in chat test in opsucht</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:16</span>
+        </div><div class="msg-content">habe dir msg geschikt konte den 2. binde strich nicht schiken weil sonst der name weg wäre CEO_VOX_ so würde das dan ausehen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:16</span>
+        </div><div class="msg-content">Ja wusste ich aber nicht schreib dann ingame</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:18</span>
+        </div><div class="msg-content">so das geld hast du und das plot auch</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:18</span>
+        </div><div class="msg-content">Ja passt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:19</span>
+        </div><div class="msg-content">das zeug liegt in der Kiste. sollte was fehlen sag bescheid und das andere zeugt darin kannst du als deko Elemente verwenden.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:23</span>
+        </div><div class="msg-content">Jo Glaß könnte bissle knapp sein wenn ich gerade überlege</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:24</span>
+        </div><div class="msg-content">ok ich werde morgen noch weitere 5 Stacks in die Kiste legen oder in eine 2.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:24</span>
+        </div><div class="msg-content">Jo</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:42</span>
+        </div><div class="msg-content">so habe 10 Stacks glas in die Kiste gelegt</div>      </div>
+    </div><div class="date-divider">18. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:32</span>
+        </div><div class="msg-content">ich habe heute mal vorbei geschaut wan bekint der Bau ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:33</span>
+        </div><div class="msg-content">Machen wir ab nächster woche</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:41</span>
+        </div><div class="msg-content">warum erst nächste Woche?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:05</span>
+        </div><div class="msg-content">Wir haben auch andere Aufträge zu tun die wichtiger sind</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:06</span>
+        </div><div class="msg-content">Und für 150k kannst du auch nicht erwarten das wir es von heute auf morgen machen ^^</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:13</span>
+        </div><div class="msg-content">war ja nur eine frage.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:13</span>
+        </div><div class="msg-content">aber ok dann warte ich halt noch.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:25</span>
+        </div><div class="msg-content">Ja wir haben auch noch anderes zu tun was wichtiger ist^^</div>      </div>
+    </div><div class="date-divider">19. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 16:06</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; Wenn du willst das es bisshen schneller geht kannst du schon mal den kresi auf dem Boden machen 🙂</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 16:07</span>
+        </div><div class="msg-content">Dann kannst du auch selber die große entscheiden</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:08</span>
+        </div><div class="msg-content">mache ich montag.</div>      </div>
+    </div><div class="date-divider">20. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 07:28</span>
+        </div><div class="msg-content">Okay weil dann können wir anfangen</div>      </div>
+    </div><div class="date-divider">21. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:31</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; als info für dich: Die voraussichtliche Bauzeit würde 2-3 Wochen betragen.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:32</span>
+        </div><div class="msg-content">Wenn wir morgen anfangen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 20:09</span>
+        </div><div class="msg-content">gut ich habe 0 zeit mache die Größe einfach wie auf dem Bild zu sehen ist (mittig)</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 20:10</span>
+        </div><div class="msg-content">.</div>      </div>
+    </div><div class="date-divider">22. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 05:22</span>
+        </div><div class="msg-content">Ok</div>      </div>
+    </div><div class="date-divider">23. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 13:51</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; was ist mit dem plot passiert ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 13:51</span>
+        </div><div class="msg-content">Wrm ist des jetzt von wem anders?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:11</span>
+        </div><div class="msg-content">hä? warte kurz.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:11</span>
+        </div><div class="msg-content">Da ist jetzt ein shop</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:11</span>
+        </div><div class="msg-content">sicher das du auf dem richtigen bist?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:11</span>
+        </div><div class="msg-content">Da wo ich bauen sollte</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:11</span>
+        </div><div class="msg-content">Ja hatte homepoint gesetzt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:12</span>
+        </div><div class="msg-content">ok. ich sehe es mir mal an.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:12</span>
+        </div><div class="msg-content">aber verkauft habe ich es sicher nicht.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:12</span>
+        </div><div class="msg-content">🙃 mach das mal</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:23</span>
+        </div><div class="msg-content">schike mir mal tpa</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:23</span>
+        </div><div class="msg-content">das plot ist noch da du hast nur ein falschen home benutzt oder so</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:25</span>
+        </div><div class="msg-content">Hatte nur den 1 homepoint</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:25</span>
+        </div><div class="msg-content">hä? falsch ge speichert ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:26</span>
+        </div><div class="msg-content">Ka ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:26</span>
+        </div><div class="msg-content">Welches p h von dir ist das ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:26</span>
+        </div><div class="msg-content">Wollte heute anfangen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:27</span>
+        </div><div class="msg-content">bin auf cb 5 schike mir tpa dan kanzt du ein home erstellen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:27</span>
+        </div><div class="msg-content">Bin net on :/</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:28</span>
+        </div><div class="msg-content">Warte komme kurz</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:32</span>
+        </div><div class="msg-content">was meinst du mit: ,,und jetzt ein gings`` ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:33</span>
+        </div><div class="msg-content">Das der home geklappt hat</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:33</span>
+        </div><div class="msg-content">Konnte zum Plot war ein Bug vorhin</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 18:35</span>
+        </div><div class="msg-content">achso. gut dann Kannst du ja jetzt anfangen zu bauen.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:41</span>
+        </div><div class="msg-content">Ja morgen mach ich das</div>      </div>
+    </div><div class="date-divider">25. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 13:02</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; es wird leider zu Verzögerungen kommen da wir aktuell an unseren wohnungsplot bauen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:55</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; ein builder wird sich um dein Auftrag kümmern er **beginnt am Sonntag 13UHR**</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:56</span>
+        </div><div class="msg-content">Gib bitte .ChirpyPoet1996 rechte auf dem plot</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 18:57</span>
+        </div><div class="msg-content">Und schreib bitte welches plot es von dir ist also : **[CB] [Ingame name] [dein p h]**</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:16</span>
+        </div><div class="msg-content">CB 5. CEO_VOX, swarp:</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:17</span>
+        </div><div class="msg-content">/sw CEO_VOX</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 19:17</span>
+        </div><div class="msg-content">Ah ok perfekt</div>      </div>
+    </div><div class="date-divider">26. June 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 05:13</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; hat er schon rechte ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 05:14</span>
+        </div><div class="msg-content">Er meinte auch es sind nicht alle Bauteile verfügbar also du musst mehr Glas steinzielgel... farmen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 05:43</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; könntest du noch bilder von oben seite… senden das braucht unser builder</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 07:21</span>
+        </div><div class="msg-content">bitte Mittig bauen und semetrisch.</div><div class="attachment"><img src="https://cdn.discordapp.com/attachments/1515766935978250310/1519965722644709433/image.png?ex=6a588663&is=6a5734e3&hm=c1359ab54c18d8bf382fafd067a7870ecf00288ad4a7c5dd1db439e72c8094f2&" alt="image.png" loading="lazy"></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 09:42</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; gib bitte  .GawrGura3845 auch rechte</div>      </div>
+    </div><div class="date-divider">09. July 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 14:59</span>
+        </div><div class="msg-content">&lt;@787730028657508382&gt; hier kannst du fragen … an &lt;@1384605619087999087&gt; senden</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 15:00</span>
+        </div><div class="msg-content">hallo ich brauche zum bau noch 22 stacks kies.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 15:00</span>
+        </div><div class="msg-content">zur glaskuppel: soll sie vorne offen sien wie auf dem bild oder geschlossen wie die anderen seiten?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 15:01</span>
+        </div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 15:01</span>
+        </div><div class="msg-content">bei den 4 Toren geschlossen mit einer Doppeltür oder so. der rest so wie auf dem bild. (habe es nochmal bearbeitet).</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 15:02</span>
+        </div><div class="msg-content">ok. mache es einfach so wie auf dem bild</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 15:03</span>
+        </div><div class="msg-content">außer das vordere Element das auch geschlossen wen du das meintest. die ki hat da ein Fehler bei der Erstellung des Bildes gemacht</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 15:04</span>
+        </div><div class="msg-content">also so wie bei den anderen Bereichen der Kuppel zu sehen ist</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 15:04</span>
+        </div><div class="msg-content">die kuppel geschlossen. ok.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 15:05</span>
+        </div><div class="msg-content">brauche bald en kies. ohne den kann ich nicht anfangen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 15:05</span>
+        </div><div class="msg-content">liegt spätestens morgen in der Kiste</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 15:06</span>
+        </div><div class="msg-content">die redstonelampen oben mittig in der kuppel, funzen die oder soll ich da laternen nehmen?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 15:07</span>
+        </div><div class="msg-content">mache mit den Lampen und oben einfach ein Retstone block mit Redstone die Lampen anmachen oder so.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 15:08</span>
+        </div><div class="msg-content">ich frage nur, ob die überhaupt gehen, weil man darf hier ja kaum redstone verwenden. ok wir schauen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 15:09</span>
+        </div><div class="msg-content">das Redstone und so lege ich in die Kisten. und einige haben ganze Fahrstühle also sollten Lampen auch erlaubt sein</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 15:09</span>
+        </div><div class="msg-content">und gehen tuhen sie dan natürlich auch</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 15:15</span>
+        </div><div class="msg-content">ich meine nicht die Fahrstühle die dich teleportieren sondern echte Redstone Fahrstühle.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 15:15</span>
+        </div><div class="msg-content">„Tageslichtsensoren“</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 15:34</span>
+        </div><div class="msg-content">noch 40 laternen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 16:38</span>
+        </div><div class="msg-content">brauche nochmal min 20 stacks glas und 4 stacks blaues glas</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 19:08</span>
+        </div><div class="msg-content">so. habe alles in die Kisten gelegt</div>      </div>
+    </div><div class="date-divider">10. July 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 05:47</span>
+        </div><div class="msg-content">So sieht dein plot schon mittlerweile aus 🙂</div><div class="attachment"><img src="https://cdn.discordapp.com/attachments/1515766935978250310/1525015594846654474/Screenshot_20260710_073632_Minecraft.jpg?ex=6a587073&is=6a571ef3&hm=d78f9f72a2203d9c84f35abbe4a9f212e166ecf592dffe67a111642a271b4e74&" alt="Screenshot_20260710_073632_Minecraft.jpg" loading="lazy"></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 08:31</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 08:32</span>
+        </div><div class="msg-content">und wenn gewünscht, 36 bienenstöcke</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 08:33</span>
+        </div><div class="msg-content">3 redstoneblöcke und 20 redstonelampen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 08:33</span>
+        </div><div class="msg-content">6 stacks steinziegel</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 08:40</span>
+        </div><div class="msg-content">Er will keinen Bienenstock meinte er 🙂</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 08:40</span>
+        </div><div class="msg-content">War ein fehler von KI auf bild</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 09:20</span>
+        </div><div class="msg-content">ja. aber den Rest besorge ich.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 09:29</span>
+        </div><div class="msg-content">so liegt alles in den kisten.</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 09:29</span>
+        </div><div class="msg-content">&lt;@787730028657508382&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 10:15</span>
+        </div><div class="msg-content">nochmal 6 stacks steinziegel</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 10:34</span>
+        </div><div class="msg-content">und noch 20 laternen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 15:47</span>
+        </div><div class="msg-content">so, ich denke ich bin fertig. 10 laternen fehlen noch</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 16:31</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 16:37</span>
+        </div><div class="msg-content">ja</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 16:38</span>
+        </div><div class="msg-content">Die Items braucht er noch</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">K</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">KING_ARTUHR</span>
+          
+          <span class="msg-time">Heute um 16:39</span>
+        </div><div class="msg-content">ok. besorge ich nachher bin gerade beschäftigt</div>      </div>
+    </div><div class="date-divider">11. July 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">T-Builder | Seen555</span>
+          
+          <span class="msg-time">Heute um 12:33</span>
+        </div><div class="msg-content">also ich bin fertig. wo ist die bezahlung?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 12:35</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; passt alles so wie es ist bist du zufrieden ? Falls ja nimm bitte allen die rechte weg von unserem bauteam auf deinem plot damit nix passiert</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 12:37</span>
+        </div><div class="msg-content">Und sonst wenn du Lust hast kannst du in &lt;#1473033714110824600&gt; eine Bewertung abgeben vielen dank für deinen Auftrag 🙂</div>      </div>
+    </div><div class="date-divider">15. July 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 12:25</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt; ich würde dich bitten nun alle Spieler die noch rechte haben zu entfernen von deinem Plot und ich würde nun das ticket schließen</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 12:26</span>
+        </div><div class="msg-content">&lt;@1384605619087999087&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 12:26</span>
+        </div><div class="embed" style="border-left-color:#2b2d31"><div class="embed-title">Schließ-Anfrage</div><div class="embed-desc">&lt;@1259566003684114483&gt; hat das Schließen des Tickets angefordert.
+
+```done```
+Bitte akzeptiere oder lehne die Anfrage über die Buttons unten ab.</div><div class="embed-footer">Automatische Ticketschließung • 16.07.2026 12:26</div></div>      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <div class="card-title">📊 Statistiken</div>
+      <div class="stat-row"><span class="stat-label">Nachrichten</span><span class="stat-value accent">191</span></div>
+      <div class="stat-row"><span class="stat-label">Teilnehmer</span><span class="stat-value">4</span></div>
+      <div class="stat-row"><span class="stat-label">Channel</span><span class="stat-value">#plotbau-overlord_vox_-#23</span></div>
+      <div class="stat-row"><span class="stat-label">Erstellt</span><span class="stat-value">15.07.2026</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👥 Teilnehmer</div>
+      
+        <div class="participant">
+          <div class="participant-avatar">T</div>
+          <div class="participant-info">
+            <span class="participant-name">Ticket System</span>
+            <span class="participant-count">10 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">K</div>
+          <div class="participant-info">
+            <span class="participant-name">KING_ARTUHR</span>
+            <span class="participant-count">78 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">𝗢</div>
+          <div class="participant-info">
+            <span class="participant-name">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+            <span class="participant-count">87 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">T</div>
+          <div class="participant-info">
+            <span class="participant-name">T-Builder | Seen555</span>
+            <span class="participant-count">16 Nachrichten</span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Ticket Transcript · #plotbau-overlord_vox_-#23 · Generiert am 15.07.2026 um 12:31:32 UTC
+</div>
+
+</body>
+</html>
