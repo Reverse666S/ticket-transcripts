@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcript · #plotbau-lionpro011_70876-49</title>
+  <style>
+    :root {
+      --bg-primary: #0f1117;
+      --bg-secondary: #161b27;
+      --bg-card: #1e2433;
+      --bg-message: #1a1f2e;
+      --bg-message-hover: #1e2435;
+      --accent: #5865f2;
+      --accent-glow: rgba(88, 101, 242, 0.25);
+      --accent-2: #57f287;
+      --text-primary: #e8eaf0;
+      --text-secondary: #99aab5;
+      --text-muted: #5a6a7a;
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(88,101,242,0.4);
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1e2433 0%, #161b27 100%);
+      border-bottom: 1px solid var(--border-accent);
+      padding: 32px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+    .header-text .subtitle {
+      font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-accent);
+      color: #7289da;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .layout { max-width: 960px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+
+    /* ── Sidebar ── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+    .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .stat-value.accent { color: var(--accent); }
+
+    .participant { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .participant-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .participant-info { display: flex; flex-direction: column; }
+    .participant-name { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .participant-count { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── Messages ── */
+    .messages-wrapper { min-width: 0; }
+    .messages-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .message {
+      display: flex; gap: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .message:hover { background: var(--bg-message-hover); }
+    .message.bot-message { background: rgba(88,101,242,0.05); }
+    .avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, #5865f2, #7289da);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .avatar.bot { background: linear-gradient(135deg, var(--accent), #57f287); }
+    .message-body { flex: 1; min-width: 0; }
+    .message-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+    .author-name { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+    .author-name.bot-tag { color: var(--accent); }
+    .bot-badge {
+      font-size: 0.65rem; background: var(--accent); color: #fff;
+      padding: 1px 5px; border-radius: 3px; font-weight: 700;
+      letter-spacing: 0.3px; text-transform: uppercase;
+    }
+    .msg-time { font-size: 0.72rem; color: var(--text-muted); }
+    .msg-content { font-size: 0.9rem; color: var(--text-primary); word-break: break-word; line-height: 1.55; }
+    .msg-content a { color: #7289da; text-decoration: none; }
+    .msg-content a:hover { text-decoration: underline; }
+
+    /* ── Embeds ── */
+    .embed {
+      background: var(--bg-message);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin-top: 8px;
+      max-width: 480px;
+    }
+    .embed-author { font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; }
+    .embed-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .embed-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; white-space: pre-wrap; }
+    .embed-field { margin-top: 8px; }
+    .embed-field-name { font-size: 0.78rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .embed-field-value { font-size: 0.82rem; color: var(--text-secondary); }
+    .embed-footer { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .embed img { max-width: 100%; border-radius: 6px; margin-top: 8px; }
+
+    /* ── Attachments ── */
+    .attachment { margin-top: 8px; }
+    .attachment img { max-width: 400px; max-height: 300px; border-radius: 8px; display: block; border: 1px solid var(--border); }
+    .attachment-file {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; margin-top: 4px;
+      text-decoration: none; color: var(--text-secondary); font-size: 0.82rem;
+    }
+    .attachment-file:hover { border-color: var(--border-accent); color: var(--text-primary); }
+
+    /* ── Date divider ── */
+    .date-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 20px 0 8px; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
+    }
+    .date-divider::before, .date-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 32px 24px;
+      font-size: 0.78rem; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-icon">🎫</div>
+    <div class="header-text">
+      <h1>#plotbau-lionpro011_70876-49</h1>
+      <div class="subtitle">Ticket Transcript · 26.08.2026 um 12:04 UTC</div>
+    </div>
+    <div class="header-badge">Transcript</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="messages-wrapper">
+    <div class="messages-title">💬 Nachrichtenverlauf</div>
+<div class="date-divider">17. August 2026</div>
+
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 19:06</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt; &lt;@&amp;1502800290888286391&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 19:06</span>
+        </div><div class="embed" style="border-left-color:#3498db"><div class="embed-title">🎫 plotbau Ticket</div><div class="embed-desc">ℹ️ Ein Teammitglied wird dir in Kürze helfen!
+Dein Problem wurde gelöst? Klicke den Button unten.</div><div class="embed-field"><div class="embed-field-name">**Nutzer:**</div><div class="embed-field-value">&lt;@1373304204344557719&gt;</div></div><div class="embed-field"><div class="embed-field-name">**Ticket Thema:**</div><div class="embed-field-value">plotbau</div></div><div class="embed-field"><div class="embed-field-name">**Dein Ingamename:**</div><div class="embed-field-value">Lionpro011</div></div><div class="embed-field"><div class="embed-field-name">**Kann gefunden werden:**</div><div class="embed-field-value">?</div></div><div class="embed-field"><div class="embed-field-name">**Details für uns:**</div><div class="embed-field-value">ist ein 3x3 Plot,4m + mats wurde mit Teamkamil abgemacht</div></div><div class="embed-field"><div class="embed-field-name">**Zeitraum:**</div><div class="embed-field-value">bis zum 22.08.26</div></div><div class="embed-footer">Ticket von lionpro011_70876</div></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 19:07</span>
+        </div><div class="attachment"><img src="https://cdn.discordapp.com/attachments/1538987479535714325/1538987557793042492/image.png?ex=6a8fe21a&is=6a8e909a&hm=ca00bacc08e97e5d9438259b10bcbf2a875919236ef9f25144072ad9e5a778a6&" alt="image.png" loading="lazy"></div>      </div>
+    </div><div class="date-divider">18. August 2026</div>
+
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 10:04</span>
+        </div><div class="embed" style="border-left-color:#2ecc71"><div class="embed-title">✅ Ticket übernommen</div><div class="embed-desc">Das Ticket wird nun von &lt;@1259566003684114483&gt; bearbeitet.</div><div class="embed-footer">Ticket System</div></div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 10:05</span>
+        </div><div class="msg-content">&lt;@787730028657508382&gt; machst du den Auftrag</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 10:06</span>
+        </div><div class="msg-content">**Hier alle Infos: plot Größe 3x3 (soll auf kommplattes plot) , Preis 4m + materialkosten**</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">B</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Builder+ | Seen555</span>
+          
+          <span class="msg-time">Heute um 16:59</span>
+        </div><div class="msg-content">mache ich sobald ich dazu komme</div>      </div>
+    </div><div class="date-divider">19. August 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">B</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Builder+ | Seen555</span>
+          
+          <span class="msg-time">Heute um 16:15</span>
+        </div><div class="msg-content">wo ist das plot?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 16:16</span>
+        </div><div class="msg-content">CB6 mein 1. P h</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 18:31</span>
+        </div><div class="msg-content">soll ich es dir zeigen?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">B</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Builder+ | Seen555</span>
+          
+          <span class="msg-time">Heute um 18:32</span>
+        </div><div class="msg-content">bin schon da</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 18:33</span>
+        </div><div class="msg-content">Perfekt</div>      </div>
+    </div><div class="date-divider">20. August 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 09:00</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt; kannst du dann auch heute zahlen</div>      </div>
+    </div><div class="date-divider">22. August 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">B</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Builder+ | Seen555</span>
+          
+          <span class="msg-time">Heute um 14:32</span>
+        </div><div class="msg-content">wv darf das mat denn kosten? aktuell sind wir bei 841.286 + 2 vitrinen für 800k</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">B</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Builder+ | Seen555</span>
+          
+          <span class="msg-time">Heute um 14:32</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 14:46</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt; kannst du die 4m payn heute ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 14:54</span>
+        </div><div class="msg-content">Ich muss auf meinem Kumpel warten bis er mir 2.5m payt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 15:01</span>
+        </div><div class="msg-content">Ok weil wäre gut wenn wir das geld schon hätten</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">B</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Builder+ | Seen555</span>
+          
+          <span class="msg-time">Heute um 21:01</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt;  willst du noch ein keller?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 21:01</span>
+        </div><div class="msg-content">Nope</div>      </div>
+    </div><div class="date-divider">23. August 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">B</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Builder+ | Seen555</span>
+          
+          <span class="msg-time">Heute um 09:13</span>
+        </div><div class="msg-content">ok bin dann fertig</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">B</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Builder+ | Seen555</span>
+          
+          <span class="msg-time">Heute um 10:36</span>
+        </div><div class="msg-content">mat kosten: 973.301 + 800k für die 2 vitrinen</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 10:58</span>
+        </div><div class="msg-content">Die Vitrinen kannst du behalten,habe selbst noch 4</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 12:00</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt; wann kannst du dann zahlen?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 12:02</span>
+        </div><div class="msg-content">Heute</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 12:56</span>
+        </div><div class="msg-content">Okay alles klar gegen 16-18 Uhr?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 13:36</span>
+        </div><div class="msg-content">Jo</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 15:25</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt; bist du on kannst du payn ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 15:26</span>
+        </div><div class="msg-content">ja komm farmwelt 10</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 15:30</span>
+        </div><div class="msg-content">oder tpa &lt;@1259566003684114483&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 15:52</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt; da fehlt aber noch was an mat kosten nicht 800k sondern fast 1m</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 15:52</span>
+        </div><div class="msg-content">**175k fehlen noch**</div>      </div>
+    </div><div class="date-divider">25. August 2026</div>
+
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 09:33</span>
+        </div><div class="msg-content">&lt;@787730028657508382&gt; ist hier fertig?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 09:57</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt; dein Auftrag ist fertig aber es fehlen 175k noch. Und hat &lt;@787730028657508382&gt; die 2 vitrinen schon weggenommen nach deinem Wunsch?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 10:03</span>
+        </div><div class="msg-content">Habe ich dir doch schon gepayt</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 10:04</span>
+        </div><div class="msg-content">Du hast 800k gepayt aber die materialkosten Waren 975k</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 10:04</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 10:05</span>
+        </div><div class="msg-content">Ja und die habe ich gepayt du meintest 2 mal per msg moin</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 10:06</span>
+        </div><div class="msg-content">Ahso stimmt sorry mein Fehler tut mir leid</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 10:06</span>
+        </div><div class="msg-content">**&lt;@1373304204344557719&gt;  wenn du sonst kein weiteres Anliegen hast kannst du gerne uns in &lt;#1473033714110824600&gt; bewerten. Wir würden uns über 5/5 Sterne freuen**</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 10:07</span>
+        </div><div class="msg-content">Wenn ich Zeit habe</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 10:07</span>
+        </div><div class="msg-content">Uns seen hat die vitrinen weggenommen ?</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 10:07</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt;</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">P</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">Partner | Lionpro011 (INFINITY)</span>
+          
+          <span class="msg-time">Heute um 10:08</span>
+        </div><div class="msg-content">Ich habe sie nicht von daher gehe ich von aus</div>      </div>
+    </div>
+    <div class="message ">
+      <div class="avatar ">𝗢</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name ">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+          
+          <span class="msg-time">Heute um 10:08</span>
+        </div><div class="msg-content">Okay alles klar wenn du kein weiteres Anliegen mehr hast würde ich das Ticket schließen wenn du damit einverstanden bist</div>      </div>
+    </div><div class="date-divider">26. August 2026</div>
+
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 09:22</span>
+        </div><div class="msg-content">&lt;@1373304204344557719&gt;</div>      </div>
+    </div>
+    <div class="message bot-message">
+      <div class="avatar bot">T</div>
+      <div class="message-body">
+        <div class="message-header">
+          <span class="author-name bot-tag">Ticket System</span>
+          <span class="bot-badge">BOT</span>
+          <span class="msg-time">Heute um 09:22</span>
+        </div><div class="embed" style="border-left-color:#2b2d31"><div class="embed-title">Schließ-Anfrage</div><div class="embed-desc">&lt;@1220795527587823738&gt; hat das Schließen des Tickets angefordert.
+
+```Done.```
+Bitte akzeptiere oder lehne die Anfrage über die Buttons unten ab.</div><div class="embed-footer">Automatische Ticketschließung • 26.08.2026 21:22</div></div>      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <div class="card-title">📊 Statistiken</div>
+      <div class="stat-row"><span class="stat-label">Nachrichten</span><span class="stat-value accent">47</span></div>
+      <div class="stat-row"><span class="stat-label">Teilnehmer</span><span class="stat-value">4</span></div>
+      <div class="stat-row"><span class="stat-label">Channel</span><span class="stat-value">#plotbau-lionpro011_70876-49</span></div>
+      <div class="stat-row"><span class="stat-label">Erstellt</span><span class="stat-value">26.08.2026</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👥 Teilnehmer</div>
+      
+        <div class="participant">
+          <div class="participant-avatar">T</div>
+          <div class="participant-info">
+            <span class="participant-name">Ticket System</span>
+            <span class="participant-count">5 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">P</div>
+          <div class="participant-info">
+            <span class="participant-name">Partner | Lionpro011 (INFINITY)</span>
+            <span class="participant-count">16 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">𝗢</div>
+          <div class="participant-info">
+            <span class="participant-name">𝗢𝘄𝗻𝗲𝗿 | 𝗧𝗲𝗮𝗺𝗞𝗮𝗺𝗶𝗹</span>
+            <span class="participant-count">18 Nachrichten</span>
+          </div>
+        </div>
+        <div class="participant">
+          <div class="participant-avatar">B</div>
+          <div class="participant-info">
+            <span class="participant-name">Builder+ | Seen555</span>
+            <span class="participant-count">8 Nachrichten</span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Ticket Transcript · #plotbau-lionpro011_70876-49 · Generiert am 26.08.2026 um 12:04:16 UTC
+</div>
+
+</body>
+</html>
